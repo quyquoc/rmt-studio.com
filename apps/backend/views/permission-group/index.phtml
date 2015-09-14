@@ -1,0 +1,61 @@
+<?= $this->tag->form(array('method'=>'get')); ?>
+	<div class="search">
+		<input type="text" name="<?= $column_search ?>" value="<?= $value_search ?>">
+		<input type="submit" class="btn" value="Tìm kiếm">
+		<?= $this->tag->linkTo(array("{$uri}clear", 'Làm mới', 'class'=>'btn'));?>
+	</div>
+</form>
+
+<?= $this->tag->form("{$uri}index"); ?>
+	<div class="toolbar">
+		<?= $this->tag->linkTo(array("{$uri}add", 'Thêm mới','class'=>'toolbar_btn add'))?>
+		<input type="submit" name="active" value="Kích hoạt" class="toolbar_btn active">
+		<input type="submit" name="no_active" value="Đóng" class="toolbar_btn no_active">
+		<input type="submit" name="order" value="Sắp xếp" class="toolbar_btn order">
+		<input type="submit" name="delete" value="Xóa" class="toolbar_btn delete">
+	</div>
+	<div style="clear:both;"></div>
+	<?php $this->flashSession->output() ?>
+	<div class="module width_full">
+		<div class="module_header">
+			<h3 class="table_title">Danh sách</h3>
+		</div>
+		<div class="table_container">
+			<div class="table_content" id="tab1" style="display: block;">
+				<table cellspacing="0" cellspacing="0" border="0" class="table_main"> 
+					<thead> 
+						<tr> 
+							<th class="header" style="width:20px;">#</th> 
+							<th class="header" style="width:30px;"><input type="checkbox"  onchange="togglecheckboxes(this,'cbgroup1')" value=""></th> 
+							<th class="header"><?= $this->tag->linkTo(array("{$uri}index{$page}&column=name{$order}","Tên","class"=>"{$system->getIconPosition("name")}"))?></th> 
+							<th class="header">Resource</th> 
+							<th class="header" style="width:80px;"><?= $this->tag->linkTo(array("{$uri}index{$page}&column=status{$order}","Trạng thái","class"=>"{$system->getIconPosition("status")}"))?></th> 
+							<th class="header" style="width:40px;">Xóa</th> 
+							<th class="header" style="width:60px;"><?= $this->tag->linkTo(array("{$uri}index{$page}&column=position{$order}","Thứ tự","class"=>"{$system->getIconPosition("position")}"))?></th> 
+						</tr> 
+					</thead>
+					<tbody> 
+						<?php foreach ($data->items as $key => $value) { ?>
+							<tr> 
+								<td><?= $stt++ ?></td> 
+								<td><input type="checkbox" id="cb1_<?= ++$key ?>" name="checkbox[]" class="cbgroup1" value="<?= $value->id ?>"></td> 
+								<td style="text-align:left;"><?= $this->tag->linkTo(array("{$uri}edit/{$value->id}","{$value->name}"))?></td> 
+								<td><?= $value->resource->name ?></td>
+								<td><?= $this->tag->linkTo(array("{$uri}status/{$value->id}","",'class'=>"icn {$plugin->getStatusDetail($value->status)}"))?></td> 
+								<td><a ref="<?= $value->id ?>" link="<?= $this->url->get()."{$uri}delete/" ?>" title="<?= $name_confirm." <b>".$value->name."</b>" ?>" class="icn icn_delete"></a></td> 
+								<td><input type="text" name='possition[<?= $value->id ?>]' value="<?= $value->position ?>"></td>								 
+							</tr>
+						<?php } ?>
+					</tbody> 
+				</table>
+			</div>
+		</div>
+	</div>
+			
+	<!-- BEGIN: pagination -->
+	<div class="pagination">
+		<?= $link ?>
+		<div class="limit">Dòng hiển thị <?= $data_limit ?></div>
+	</div> 
+	<!-- END: pagination -->
+</form>

@@ -1,0 +1,79 @@
+	<?php $this->flashSession->output() ?>
+	<div class="module width_full">
+		<?= $this->tag->form("{$uri}edit/{$form->getValue('id')}"); ?>
+			<div class="module_header">
+				<h3 class="table_title"><?= $title_action; ?></h3>
+			</div>
+			
+			<div class="module_content">
+				<ul class="tab-row">
+					<li>Thông tin chính</li>
+					<li>hình ảnh</li>
+				</ul>
+				<div class="tab-group">
+					<fieldset class="tab-content main">
+						<div class="row hor">
+							<label>Tiêu đề</label>
+							<?php $is_error = isset($error) && in_array("title", $error) ? "error":"" ?>
+							<?= $form->render("title", array("class"=>"txt_long {$is_error}")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Chủ đề</label>
+							<?= $form->render("group_id", array("class"=>"medium listbox")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Kích hoạt</label>
+							<?= $form->render("status", array("class"=>"medium")); ?>
+						</div>
+						<div class="row hor half">
+							<label>Hình ảnh</label>
+							<?= $form->render("image", array("class"=>"txt_medium button")); ?>
+							<span class="input-group-btn">
+		                    	<button type="button" class="btn btn-default fileBrowse" data-target="image"><i class="fa fa-folder-open"></i> Browse</button>
+		                    </span>
+						</div>
+						<div class="row hor">
+							<label>nội dung</label>
+							<?= $form->render("content", array("class"=>"txt_long", 'rows'=>'10')) ?>
+						</div>
+					</fieldset>
+
+					<fieldset class="tab-content select_image">
+						<div class="row hor half">
+							<input type="hidden" id="select_image" name="attr_image" value="<?= isset($image_value) ? $image_value:'' ?>" />
+							<span class="input-group-btn">
+								<button type="button"  class="btn btn-default" onClick="setImage(this)" data-target="select_image"><i class="fa fa-folder-open"></i> Chọn ảnh</button>
+							</span>
+							<div class="data_image">
+								<?php if(isset($list_image) && !empty($list_image)): ?>
+									<?php foreach($list_image as $key => $value): ?>
+										<div class="item">
+											<img src="<?= $value ?>" /><span ref="<?= $key ?>" onClick="delete_image(this)"></span>
+										</div>
+									<?php endforeach ?>
+								<?php endif; ?>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<footer>
+				<div class="submit_link">
+					<input type="submit" value="Lưu" class="btn">
+					<?= $this->tag->linkTo(array("{$uri}index", 'Trở lại', 'class'=>'btn'));?>
+				</div>
+			</footer>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		var item = 0;
+		var sourc = new Array();
+
+		<?php if(isset($list_image) && !empty($list_image)): ?>
+			<?php foreach($list_image as $key => $value): ?>
+				sourc[<?=$key?>] ="<?= $value ?>";
+			<?php endforeach ?>
+			item = sourc.length;
+		<?php endif ?>
+	</script>

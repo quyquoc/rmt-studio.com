@@ -1,0 +1,68 @@
+	<?php $this->flashSession->output() ?>
+	<div class="module width_full">
+		<?= $this->tag->form("{$uri}add"); ?>
+			<div class="module_header">
+				<h3 class="table_title"><?= $title_action; ?></h3>
+			</div>
+			
+			<div class="module_content">
+				<fieldset>
+					<div class="row hor half">
+						<label>Tên mã</label>
+						<?php $is_error = isset($error) && in_array("name", $error) ? "error":"" ?>
+						<?= $form->render("name", array("class"=>"txt_medium {$is_error}")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Loại dữ liệu</label>
+						<?= $form->render("type", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Tên folder</label>
+						<?= $form->render("folder", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Kích hoạt</label>
+						<?= $form->render("status", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Hiện Folder</label>
+						<?= $form->render("folder_view", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Hiện File</label>
+						<?= $form->render("file_view", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Đổi tên Folder</label>
+						<?= $form->render("folder_rename", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Đổi tên File</label>
+						<?= $form->render("file_rename", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Tạo Folder</label>
+						<?= $form->render("folder_create", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Upload File</label>
+						<?= $form->render("file_upload", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Xóa Folder</label>
+						<?= $form->render("folder_delete", array("class"=>"medium")) ?>
+					</div>
+					<div class="row hor half">
+						<label>Xóa File</label>
+						<?= $form->render("file_delete", array("class"=>"medium")) ?>
+					</div>				
+				</fieldset>
+			</div>
+			<footer>
+				<div class="submit_link">
+					<input type="submit" value="Thêm mới" class="btn">
+					<?= $this->tag->linkTo(array("{$uri}index", 'Trở lại', 'class'=>'btn'));?>
+				</div>
+			</footer>
+		</form>
+	</div>

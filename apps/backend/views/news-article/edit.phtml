@@ -1,0 +1,119 @@
+	<?php $this->flashSession->output() ?>
+	<div class="module width_full">
+		<?= $this->tag->form("{$uri}edit/{$form->getValue('id')}"); ?>
+			<div class="module_header">
+				<h3 class="table_title"><?= $title_action; ?></h3>
+			</div>
+			
+			<div class="module_content">
+				<ul class="tab-row">
+					<li>Thông tin chính</li>
+					<li>Cấu hình</li>
+					<li>SEO</li>
+				</ul>
+				<div class="tab-group">
+					<fieldset class="tab-content main">
+						<div class="row hor">
+							<label>Tiêu đề</label>
+							<?php $is_error = isset($error) && in_array("title", $error) ? "error":"" ?>
+							<?= $form->render("title", array("class"=>"txt_long {$is_error}")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Thuộc kênh</label>
+							<?= $form->render("category_id", array("class"=>"long listbox", 'size'=>9)) ?>
+						</div>
+						<div class="row hor half">
+							<label>Kích hoạt</label>
+							<?= $form->render("status", array("class"=>"long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Nổi bật</label>
+							<?= $form->render("feature", array("class"=>"long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Hình ảnh</label>
+							<?= $form->render("image", array("class"=>"txt_long button")) ?>
+							<span class="input-group-btn">
+								<button type="button" class="btn btn-default fileBrowse" data-target="image"><i class="fa fa-folder-open"></i> Browse</button>
+							</span>
+						</div>
+						<div class="row hor">
+							<label>Mô tả</label>
+							<?= $form->render("description", array("class"=>"txt_long", "rows"=>8, 'style'=>'width:98%')) ?>
+						</div>
+						<div class="row hor">
+							<label>Nội dung</label>
+							<?= $form->render("content", array("class"=>"txt_long")) ?>
+						</div>
+					</fieldset>
+
+					<fieldset class="tab-content config">
+						<div class="row hor">
+							<label>Liên kết khác</label>
+							<?= $form->render("link", array("class"=>"txt_long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Hiển thị hình ảnh</label>
+							<?= $form->render("params[show_image]", array("class"=>"long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Hiển thị tiêu đề</label>
+							<?= $form->render("params[show_title]", array("class"=>"long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Hiển thị tóm tắt</label>
+							<?= $form->render("params[show_description]", array("class"=>"long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Hiển thị ngày đăng tải</label>
+							<?= $form->render("params[show_published]", array("class"=>"long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Hiển thị lượt xem</label>
+							<?= $form->render("params[show_hits]", array("class"=>"long")) ?>
+						</div>
+						<div class="row hor half">
+							<label>Kiểu mở trang</label>
+							<?= $form->render("url_target", array("class"=>"medium")) ?>
+						</div>
+						<div class="row hor half" id="datetimepicker">
+							<label class="control-label">Ngày đăng</label>
+			                <div class='input-group date input-append' id="datetimepicker">
+								<?= $form->render('published', array("class"=>"txt_medium button")) ?>
+			                    <span class="input-group-addon add-on"><i data-date-icon="icon-calendar" data-time-icon="icon-time" class="fa fa-calendar">b</i></span>
+			                </div>
+						</div>
+						<div class="row hor half">
+							<label>Thứ tự</label>
+							<?= $form->render("position", array("class"=>"txt_medium")) ?>
+						</div>
+					</fieldset>
+
+					<fieldset class="tab-content seo">
+						<div class="row hor">
+							<label>Tiêu đề trang</label>
+							<?= $form->render("seo_title", array("class"=>"txt_long")) ?>
+						</div>
+						<div class="row hor">
+							<label>Meta</label>
+							<?= $form->render("metadata", array("class"=>"txt_long", "rows"=>5)) ?>
+						</div>
+						<div class="row hor">
+							<label>Keyword</label>
+							<?= $form->render("keyword", array("class"=>"txt_long", "rows"=>5)) ?>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<footer>
+				<div class="submit_link">
+					<input type="submit" value="Lưu" class="btn">
+					<?= $this->tag->linkTo(array("{$uri}index", 'Trở lại', 'class'=>'btn'));?>
+				</div>
+			</footer>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		var published = "<?= $form->getValue('published')!=""?$form->getValue('published'):date("Y-m-d H:i:s")?>";
+	</script>

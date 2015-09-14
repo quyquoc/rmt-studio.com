@@ -1,0 +1,167 @@
+
+	<?php if(isset($params_c['show']) && $params_c['show'] == '0'): ?><!-- Hien thi dang kenh thong tin - bai viet -->
+		
+		<?php if(isset($menu_list) && count($menu_list) > 0): ?>
+			<div class="news_root">
+				<div class="menu_news">
+					<ul>
+						<?php foreach($menu_list as $key => $value): ?>
+							<li><?= $this->tag->linkTo(array("tin-tuc/{$value->code}", "{$value->name}"))?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if(isset($list_news) && count($list_news) > 0): ?>
+
+			<?php foreach($list_news as $key => $value): ?>
+
+				<?php $url = $plugin->getLinkDetail($value,'news'); ?>
+
+				<div class="item">
+					<!-- IMAGE -->
+					<?php if($params_c['show_image'] == '1'): ?>
+						<?php if(isset($value->image) && !empty($value->image)):?>
+							<div class="image">
+								<?php if($params_c['link_image'] == '1'): ?>
+									<?= $this->tag->linkTo(array('tin-tuc/'.$menu_code.'/'.$url.'/', '<img src="'.$value->image.'">')); ?>
+								<?php else:?>
+									<img src="<?php echo $value->image;?>">
+								<?php endif;?>
+							</div>
+						<?php endif;?>
+					<?php endif;?>
+
+					<!-- TITLE -->
+					<?php if($params_c['show_title'] == '1'): ?>
+						<div class="title">
+							<?php if(empty($params_c['number_title'])):?>
+								<?php $params_c['number_title'] = strlen($value->title);?>
+							<?php endif;?>
+
+							<?php if($params_c['link_title'] == '1'): ?>
+								<h3><?= $this->tag->linkTo(array('tin-tuc/'.$url, $plugin->getCutString($value->title, $params_c['number_title']))); ?></h3>
+							<?php else:?>
+								<h3><?= $this->tag->linkTo(array('tin-tuc/'.$value->news_category->code.'/'.$url, $plugin->getCutString($value->title, $params_c['number_title']))); ?></h3>
+							<?php endif;?>
+						</div>
+					<?php endif;?>
+
+					<!-- HITS -->
+					<?php if($params_c['show_hits'] == '1'): ?>
+						<div class="hit">
+							<?php echo 'Lượt xem: <span>'.$value->hits.'</span>';?>
+						</div>
+					<?php endif;?>
+
+					<!-- PUBLISHED -->
+					<?php if($params_c['show_published'] == '1'): ?>
+						<div class="published">
+							<?php echo date('d-m-Y', strtotime($value->published));?>
+						</div>
+					<?php endif;?>
+
+					<!-- DESCRIPTION -->
+					<?php if($params_c['show_description'] == '1'): ?>
+						<div class="description">
+							<?php if(empty($params_c['number_description'])):?>
+								<?php $params_c['number_description'] = strlen($value->description);?>
+							<?php endif;?>
+
+							<?php if($params_c['link_description'] == '1'): ?>
+								<?= $this->tag->linkTo(array('tin-tuc/'.$url.'/', $plugin->getCutString($value->description, $params_c['number_description']))); ?>
+							<?php else:?>
+								<?php echo $plugin->getCutString($value->description, $params_c['number_description']);?>
+							<?php endif;?>
+						</div>
+					<?php endif;?>
+				</div>
+				
+			<?php endforeach; ?>
+
+			<?php if(isset($params_c['show_paginator']) && $params_c['show_paginator'] == '1'): ?>
+				<div class="paginator">
+					<?= $paginator ?>
+				</div>
+			<?php endif; ?>
+
+		<?php endif; ?>
+	<?php elseif(isset($params_c['show']) && $params_c['show'] == '1'): ?><!-- Hien thi dang danh sach bai viet -->
+
+		<?php if(isset($list_news) && count($list_news) > 0): ?>
+
+			<?php foreach($list_news as $key => $value): ?>
+
+				<?php $url = $plugin->getLinkDetail($value); ?>
+
+				<div class="item">
+					<!-- IMAGE -->
+					<?php if($params_c['show_image'] == '1'): ?>
+						<?php if(isset($value->image) && !empty($value->image)):?>
+							<div class="image">
+								<?php if($params_c['link_image'] == '1'): ?>
+									<?= $this->tag->linkTo(array('tin-tuc/'.$menu_code.'/'.$url.'/', '<img src="'.$value->image.'">')); ?>
+								<?php else:?>
+									<img src="<?php echo $value->image;?>">
+								<?php endif;?>
+							</div>
+						<?php endif;?>
+					<?php endif;?>
+
+					<!-- TITLE -->
+					<?php if($params_c['show_title'] == '1'): ?>
+						<div class="title">
+							<?php if(empty($params_c['number_title'])):?>
+								<?php $params_c['number_title'] = strlen($value->title);?>
+							<?php endif;?>
+
+							<?php if($params_c['link_title'] == '1'): ?>
+								<h3><?= $this->tag->linkTo(array('tin-tuc/'.$menu_code.'/'.$url, $plugin->getCutString($value->title, $params_c['number_title']))); ?></h3>
+							<?php else:?>
+								<h3><?= $this->tag->linkTo(array('tin-tuc/'.$value->news_category->code.'/'.$url, $plugin->getCutString($value->title, $params_c['number_title']))); ?></h3>
+							<?php endif;?>
+						</div>
+					<?php endif;?>
+
+					<!-- HITS -->
+					<?php if($params_c['show_hits'] == '1'): ?>
+						<div class="hit">
+							<?php echo 'Lượt xem: <span>'.$value->hits.'</span>';?>
+						</div>
+					<?php endif;?>
+
+					<!-- PUBLISHED -->
+					<?php if($params_c['show_published'] == '1'): ?>
+						<div class="published">
+							<?php echo date('d-m-Y', strtotime($value->published));?>
+						</div>
+					<?php endif;?>
+
+					<!-- DESCRIPTION -->
+					<?php if($params_c['show_description'] == '1'): ?>
+						<div class="description">
+							<?php if(empty($params_c['number_description'])):?>
+								<?php $params_c['number_description'] = strlen($value->description);?>
+							<?php endif;?>
+
+							<?php if($params_c['link_description'] == '1'): ?>
+								<?= $this->tag->linkTo(array('tin-tuc/'.$url.'/', $plugin->getCutString($value->description, $params_c['number_description']))); ?>
+							<?php else:?>
+								<?php echo $plugin->getCutString($value->description, $params_c['number_description']);?>
+							<?php endif;?>
+						</div>
+					<?php endif;?>
+				</div>
+				
+			<?php endforeach; ?>
+
+			<?php if(isset($params_c['show_paginator']) && $params_c['show_paginator'] == '1'): ?>
+				<div class="paginator">
+					<?= $paginator ?>
+				</div>
+			<?php endif; ?>
+
+		<?php endif; ?>
+	<?php endif;?>
+
+	<div class="clear"></div>

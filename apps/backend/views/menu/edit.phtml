@@ -1,0 +1,32 @@
+	<?php $this->flashSession->output() ?>
+	<article class="module width_full">
+		<?= $this->tag->form("{$uri}edit/{$form->getValue('id')}"); ?>
+			<div class="module_header">
+				<h3 class="table_title"><?= $title_action; ?></h3>
+			</div>
+			
+			<div class="module_content">
+				<fieldset>
+					<div class="row">
+						<label>Tên</label>
+						<?php $is_error = isset($error) && in_array("name", $error) ? "error":"" ?>
+						<?= $form->render("name", array("class"=>"txt_medium {$is_error}")) ?>
+					</div>
+					<div class="row">
+						<label>Kích hoạt</label>
+						<?= $form->render("status", array("class"=>"medium")) ?>
+					</div>
+					<div class="row">
+						<label>Thứ tự</label>
+						<?= $form->render("position", array("class"=>"txt_medium")) ?>
+					</div>
+				</fieldset>
+			</div>
+			<footer>
+				<div class="submit_link">
+					<input type="submit" value="Lưu" class="btn">
+					<?= $this->tag->linkTo(array("{$uri}index", 'Hủy', 'class'=>'btn'));?>
+				</div>
+			</footer>
+		</form>
+	</article><!-- end of post new article -->

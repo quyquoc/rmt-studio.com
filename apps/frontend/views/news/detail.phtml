@@ -1,0 +1,22 @@
+
+<?php $params_a = $plugin->getItemParam($news->params); ?>
+
+<?php if(isset($params_a['show_image']) && $params_a['show_image'] == '1'): ?>
+	<img src="<?php echo $value->image;?>">
+<?php endif;?>
+
+<?php if(isset($params_a['show_title']) && $params_a['show_title'] == '1'): ?>
+	<h1><?= $news->title ?></h1>
+<?php endif;?>
+
+<?php if(isset($params_a['show_published']) && $params_a['show_published'] == '1'): ?>
+	<div class="published"><?php echo date('d-m-Y', strtotime($news->published));?></div>
+<?php endif;?>
+
+<?php if(isset($params_a['show_description']) && $params_a['show_description'] == '1'): ?>
+	<div class="description"><?php echo $news->description;?></div>
+<?php endif;?>
+
+<div class="content">
+	<?= $news->content ?>
+</div>

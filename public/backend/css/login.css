@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, Sans-serif;
+  font-size: 10pt;
+  text-decoration: none; }
+
+html {
+  -webkit-text-size-adjust: none; }
+
+img {
+  max-width: 100%;
+  display: initial;
+  height: auto;
+  width: auto\9;
+  /* ie8 */ }
+
+/*================================
+END DETECT IPHONE DEVICE *********/
+a {
+  text-decoration: none;
+  color: #E9E3C3; }
+
+a:hover {
+  color: #94020D; }
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-family: Tahoma, Sans-serif;
+  vertical-align: baseline; }
+
+ul, ol {
+  list-style: none; }
+
+strong {
+  font-weight: bold; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* close commented backslash hack */
+body {
+  line-height: 1.2;
+  font-family: Tahoma, Sans-serif;
+  background-color: #eff5fa; }
+
+.clear {
+  clear: both; }
+
+/*================================
+END CSS RESET ********************/
+@font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 100;
+  src: local("Exo Thin"), local("Exo-Thin"), url(../font/exo.woff2) format("woff2"), url(../font/exo.woff) format("woff"); }
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #fff;
+  font-family: Arial;
+  overflow: hidden;
+  font-size: 12px; }
+
+.body {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background-image: url(../images/bg_login.jpg);
+  background-size: cover;
+  /* -webkit-filter: blur(5px); */
+  z-index: 0; }
+
+.grad {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.65)));
+  /* Chrome,Safari4+ */
+  z-index: 1;
+  opacity: 0.7; }
+
+.header {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 255px);
+  z-index: 2; }
+
+.header div {
+  float: left;
+  color: #fff;
+  font-family: 'Exo', sans-serif;
+  font-size: 55px;
+  font-weight: 200; }
+
+.header div span {
+  color: #5379fa !important;
+  font-size: 17px;
+  font-weight: normal; }
+
+.login {
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  height: 150px;
+  width: 350px;
+  padding: 10px;
+  z-index: 2; }
+
+.login input[type=text] {
+  width: 250px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px; }
+
+.login input[type=password] {
+  width: 250px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+  margin-top: 10px; }
+
+.login input[type=submit] {
+  width: 260px;
+  height: 35px;
+  background: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #a18d6c;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px;
+  margin-top: 10px; }
+
+.login input[type=submit]:hover {
+  opacity: 0.8; }
+
+.login input[type=submit]:active {
+  opacity: 0.6; }
+
+.login input[type=text]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9); }
+
+.login input[type=password]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9); }
+
+.login input[type=submit]:focus {
+  outline: none; }
+
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6); }
+
+::-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.6); }
+
+/*# sourceMappingURL=login.css.map */

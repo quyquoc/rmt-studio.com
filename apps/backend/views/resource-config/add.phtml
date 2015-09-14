@@ -1,0 +1,27 @@
+	<?php $this->flashSession->output() ?>
+	<div class="module width_full">
+		<?= $this->tag->form("{$uri}add"); ?>
+			<div class="module_header">
+				<h3 class="table_title"><?= $title_action; ?></h3>
+			</div>
+			
+			<div class="module_content">
+				<fieldset>
+					<div class="row">
+						<label>Tên nhóm dữ liệu</label>
+						<?= $form->render("resource_id", array("class"=>"txt_medium")) ?>
+					</div>
+					<div class="row">
+						<label>Mã dữ liệu</label>
+						<?= $form->render("config_id", array("class"=>"txt_medium")) ?>
+					</div>				
+				</fieldset>
+			</div>
+			<footer>
+				<div class="submit_link">
+					<input type="submit" value="Thêm mới" class="btn">
+					<?= $this->tag->linkTo(array("{$uri}index", 'Trở lại', 'class'=>'btn'));?>
+				</div>
+			</footer>
+		</form>
+	</div>

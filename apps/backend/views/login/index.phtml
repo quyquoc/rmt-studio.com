@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  	<meta charset="UTF-8">
+	  	<?= $this->tag->stylesheetLink(array('backend/images/favicon.ico','rel'=>'shortcut icon')); ?>
+	  	<?php echo $this->tag->getTitle(); ?>
+	  	<?php $this->assets->outputCss() ?>
+	</head>
+	<body>
+
+		<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Site<span>Random</span></div>
+		</div>
+		<br>
+		<div class="login">
+			<?php echo Phalcon\Tag::form(array("onsubmit"=>"return frmSub()")); ?>
+				<?= $form->render("username") ?>
+				<?= $form->render("password") ?>
+				<?= $form->render("go") ?>
+			</form>
+		</div>
+		<?php $this->assets->outputJs() ?>
+	</body>
+</html> 

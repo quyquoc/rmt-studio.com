@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta property="og:title" content="Rmt Studio | rmt-studio.com" />
+	<meta property="og:url" content="http://rmt-studio.com" />
+	<meta property="og:site_name" content="Rmt Studio | rmt-studio.com" />
+	<meta property="og:image" content="http://rmt-studio.com/public/templates/public/light/images/img_fb.jpg" />
+	<meta name="keywords" content="rmtstudio, rmt-studio, rmt studio, rmt, studio, architect, architecture, 3d, interior, visualization, kien truc, nghe thuat, ve 3d"></meta>
+	<meta name="robots" content="index,follow" />
+	<meta name="description" content="RMT Studio, We are the professional team with talented Architects and 3D Artists. We have had depth-experiences in Architecture Design and 3D Visualization. Professional style and passionate in works are what we have. We have done many projects in various scales in the world. Bring the satisfaction for customer is our happy. In The RMT Studio, we are always strictly in works and assessment of the quality of each product in any project. If you have any project need to help, bring it to us. Because RMT Studio is the best choice."></meta>
+	<meta name="alexa" content="100">
+	<meta name="revisit" content="2 days">
+	<meta name="revisit-after" content="2 days">
+	<meta name="google-site-verification" content="ac_aFBZvqmD1wyjD1bCDjw89JBNg13bJXBOzoMcbfzw" />
+	<meta name="copyright" content="Rmt-studio" />
+	<meta name="author" content="Rmt-studio" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base target='_self'/>
+	
+	<?= $this->tag->stylesheetLink(array('frontend/favicon.ico','rel'=>'shortcut icon')); ?>
+	<?= $this->tag->getTitle(); ?>
+	<?= $this->tag->stylesheetLink("frontend/css/style.css"); ?>
+	<?= $this->assets->outputCss(); ?>
+	<?= $this->tag->javascriptInclude("frontend/js/jquery-1.8.2.min.js"); ?>
+	<?= $this->assets->outputJs(); ?>
+</head>
+<body>
+	<?= $this->getContent(); ?>
+</body>
+</html>

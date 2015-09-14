@@ -1,0 +1,41 @@
+	<?php $this->flashSession->output() ?>
+	<div class="module width_full">
+		<?= $this->tag->form("{$uri}add"); ?>
+			<div class="module_header">
+				<h3 class="table_title"><?= $title_action; ?></h3>
+			</div>
+			
+			<div class="module_content">
+				<fieldset>
+					<div class="row">
+						<label>Tên</label>
+						<?php $is_error = isset($error) && in_array("name", $error) ? "error":"" ?>
+						<?= $form->render("name", array("class"=>"txt_medium {$is_error}")) ?>
+					</div>
+					<div class="row">
+						<label>Controller</label>
+						<?php $is_error = isset($error) && in_array("controller", $error) ? "error":"" ?>
+						<?= $form->render("controller", array("class"=>"txt_medium {$is_error}")) ?>
+					</div>
+					<div class="row">
+						<label>Action</label>
+						<?php $is_error = isset($error) && in_array("action", $error) ? "error":"" ?>
+						<?= $form->render("action", array("class"=>"txt_medium {$is_error}")) ?>
+					</div>
+					
+					<div class="row">
+						<label>Vị trí</label>
+						<?php $is_error = isset($error) && in_array("position", $error) ? "error":"" ?>
+						<?= $form->render("position", array("class"=>"txt_medium {$is_error}")) ?>
+					</div>
+
+				</fieldset>
+			</div>
+			<footer>
+				<div class="submit_link">
+					<input type="submit" value="Thêm mới" class="btn">
+					<?= $this->tag->linkTo(array("{$uri}index", 'Trở lại', 'class'=>'btn'));?>
+				</div>
+			</footer>
+		</form>
+	</div>

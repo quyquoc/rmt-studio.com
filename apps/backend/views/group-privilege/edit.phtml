@@ -1,0 +1,58 @@
+<?= $this->tag->form("{$uri}edit/{$group_id}"); ?>
+	<div style="clear:both;"></div>
+	<?php $this->flashSession->output() ?>
+	<div class="module width_full">
+		<div class="module_header">
+			<h3 class="table_title">Danh sách</h3>
+		</div>
+		<div class="table_container">
+			<div class="table_content" id="tab1" style="display: block;">
+				<table cellspacing="0" cellspacing="0" border="0" class="table_main"> 
+					<thead> 
+						<tr> 
+							<th class="header">Tên</th> 
+							<th class="header">Mã quyền</th>
+							<?php foreach($action as $k => $v): ?>
+								<th class="header"><?= $v ?></th>
+							<?php endforeach; ?> 
+						</tr> 
+					</thead>
+					<tbody> 
+						<?php foreach ($role as $key => $value) { ?>
+							<tr>
+								<td rowspan="<?= count($pri_active)+1 ?>" style="border-right:1px solid #d4dce6"><?= $key ?></td>
+							</tr>
+							<?php foreach($pri_active as $k_1 => $v_1): ?>
+								<tr>
+									<td><?= $k_1 ?></td>
+									<?php foreach($action as $k_action => $v_action): ?>
+										<td>
+											<?php if(array_key_exists($k_1,$value) && array_key_exists($k_action, $value[$k_1])): ?>
+												<input class="icon_checkbox" type="checkbox" name="my[<?= $k_1?>][<?= $k_action ?>]" data-size="mini" checked >
+											<?php else: ?>
+												<input class="icon_checkbox" type="checkbox" name="my[<?= $k_1?>][<?= $k_action ?>]" data-size="mini" >
+											<?php endif; ?>
+										</td>
+									<?php endforeach; ?>
+								</tr>
+							<?php endforeach; ?>
+						<?php } ?>
+					</tbody> 
+				</table>
+			</div>
+		</div>
+		<footer>
+			<div class="submit_link">
+				<input type="submit" value="Lưu" class="btn">
+				<?= $this->tag->linkTo(array("{$uri}index", 'Hủy', 'class'=>'btn'));?>
+			</div>
+		</footer>
+	</div>
+</form>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$("input.icon_checkbox").bootstrapSwitch();
+	});
+	
+</script>

@@ -1,0 +1,456 @@
+$color_text: 	#666;
+$color_a: 		#21C2F8;
+$color_a_hover: #000;
+$color_page:	#21C2F8;
+
+@font-face {
+    src: url("../font/UTM Cafeta.woff");
+    font-family: 'Cafeta';
+}
+
+/* Essentials */
+html, div, map, dt, isindex, form, header, aside, section, section, article, footer {  
+    display: block;  
+}
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+	background: #F8F8F8;
+	font-size: 12px;
+	color: $color_text;
+	line-height: 1.4;
+}
+h3{
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+a{
+    color: $color_a;
+    text-decoration: none;
+}
+a:hover {
+    color: $color_a_hover;
+}
+.clear{
+    clear: both;
+}
+.spacer {
+	height: 20px;
+}
+.wrapper{
+	width: 900px;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+/*------------------------------------------------
+** MODULE
+**------------------------------------------------*/
+.module{
+	border: 1px solid $color_page;
+	border-radius: 5px;
+	margin: 0 auto 10px;
+	overflow: hidden;
+	.moduletitle{
+		height: 35px;
+		padding: 10px 0 0 10px;
+		background: $color_page;
+		color: white;
+		font-family: 'Cafeta';
+		font-size: 14pt;
+	}
+	.modulecontent{
+		padding: 10px 20px;
+		background: #FFF;
+	}
+}
+
+/*------------------------------------------------
+** MENU
+**------------------------------------------------*/
+@import "menunav";
+
+/*------------------------------------------------
+** HEADER
+**------------------------------------------------*/
+#header {
+	height: 50px;
+	background: $color_page;
+	margin: 0 auto 10px;
+}
+
+/*------------------------------------------------
+** MAIN-CONTENT
+**------------------------------------------------*/
+#main-content {
+	#left{
+		float: left;
+		width: 300px;
+		min-height: 500px;
+		background: #F7F7F7;
+	}
+	#center{
+		float: left;
+		width: 590px;
+		min-height: 500px;
+		background: #E8E8E8;
+		margin: 0 0 0 10px;
+	}
+	#right{
+		width: 0;
+		display: none;
+	}
+}
+
+/*------------------------------------------------
+** News
+**------------------------------------------------*/
+.news{
+	.item{
+		float: left;
+		width: 100%;
+		padding: 10px 0;
+		.image{
+			float: left;
+			margin: 0 10px 10px 0;
+			img{
+				width: 150px;
+				min-height: 100px;
+				border: 0;
+			}
+		}
+		h3{
+			.title{
+				font-size: 16pt;
+				font-family: 'Cafeta';
+				color: $color_page;
+			}
+		}
+	}
+	.description{
+		text-align: justify;
+	}
+	.content{
+		text-align: justify;
+	}
+	.hit{
+		text-align: right;
+	}
+	.published{
+		text-align: right;
+		padding: 0 0 10px 0;
+		color: #ccc;
+	}
+	.line{
+		/*float: left;
+		margin: 10px 0 10px 50px;
+		width: 80%;
+		height: 1px;
+		background: #ccc;*/
+	}
+}
+
+/*------------------------------------------------
+** Shop
+**------------------------------------------------*/
+.shop{
+	.item{
+		float: left;
+		width: 30%;
+		margin: 0 1%;
+		padding: 10px 0;
+		.image{
+			margin: 0 auto 10px;
+			text-align: center;
+			overflow: hidden;
+			height: 200px;    
+			display: table-cell;
+    		vertical-align: bottom;
+			img{
+				max-width: 150px;
+				max-height: 200px;
+				border: 0;
+				transition: all 0.4s linear;
+				&:hover{
+					transform: scale(1.1);
+				}
+			}
+		}
+		h3.title{
+			font-size: 15pt;
+			font-family: 'Cafeta';
+			color: $color_page;
+		}
+		.price, .saleoff{
+			color: #f96489;
+			font-weight: bold;
+		}
+		.cart{}
+	}
+	.description{
+		text-align: justify;
+	}
+	.content{
+		text-align: justify;
+	}
+	.hit{
+		text-align: right;
+	}
+	.published{
+		text-align: right;
+		padding: 0 0 10px 0;
+		color: #ccc;
+	}
+}
+
+.shop-show{
+	.item{
+		float: left;
+		width: 30%;
+		margin: 0 1%;
+		padding: 10px 0;
+		.image{
+			margin: 0 auto 10px;
+			text-align: center;
+			overflow: hidden;
+			img{
+				max-width: 150px;
+				max-height: 200px;
+				border: 0;
+				transition: all 0.4s linear;
+				&:hover{
+					transform: scale(1.1);
+				}
+			}
+		}
+		h3.title{
+			float: left;
+			width: 71%;
+			font-size: 15pt;
+			font-family: 'Cafeta';
+			color: $color_page;
+		}
+		.price{
+			float: right;
+			width: 20%;
+			margin: 6px;
+			color: #f96489;
+			font-weight: bold;
+		}
+		.cart{
+			float: right;
+		}
+	}
+	.description{
+		text-align: justify;
+	}
+	.content{
+		text-align: justify;
+	}
+	.hit{
+		text-align: right;
+	}
+	.published{
+		text-align: right;
+		padding: 0 0 10px 0;
+		color: #ccc;
+	}
+}
+
+/*---------- SHOP CART DETAIL ----------*/
+.shop-cart-detail{
+	.cartDetail{
+		background-color: #FFF;
+		padding: 10px;
+		.cartDetail-header{
+			border-left: solid 1px #CCC;
+			border-top: solid 1px #CCC;
+			background-color:#CCF;		
+		}
+		.col-th{
+			float: left;
+			font-weight: bold;
+			padding: 3px;
+			text-align: center;
+			border-right: solid 1px #CCC;
+			border-bottom: solid 1px #CCC;
+		}
+		.cartDetail-row{
+			border-left: solid 1px #CCC;	
+		}
+		.col-row{
+			float: left;	
+			padding: 5px 3px 3px 3px;
+			text-align: center;
+			border-right: solid 1px #CCC;
+			border-bottom: solid 1px #CCC;
+			height: 27px;
+			font-size: 11px;
+		}
+		a.itemLink:link, a.itemLink:active, a.itemLink:visited{
+			text-decoration: none;
+			color:#06C;
+		}
+		a.itemLink:hover{
+			text-decoration: underline;
+			color:#F00;
+		}
+	}
+	.cartDetail-button{
+		background:#FFF;
+		padding: 15px;	
+	}
+	.cartDetail-total{
+		background:#FFF;
+		padding: 5px 20px;	
+		text-align: right;
+		font-weight: bold;
+	}
+	.cartDetail-order{
+		background:#FFF;
+		padding: 5px 20px;	
+		text-align: left;
+		font-weight: bold;
+		label{
+			padding: 3;
+		}
+		div{
+			padding: 3px 3px 7px 3px;	
+			margin-bottom: 5px;
+			border-bottom: solid 1px #EEE;
+		}
+	}
+}
+
+/*------------------------------------------------
+** Purchase
+**------------------------------------------------*/
+.purchase{
+	.item{
+		float: left;
+		width: 22%;
+		margin: 0 1% 10px;
+		padding: 0 0 10px 0;
+		border: 1px solid #E1E1E1;
+		.image{
+			margin: 0 auto 10px;
+			text-align: center;
+			overflow: hidden;
+			img{
+				max-width: 100%;
+				max-height: 200px;
+				border: 0;
+				transition: all 0.4s linear;
+				&:hover{
+					transform: scale(1.1);
+				}
+			}
+		}
+		h3.title{
+			font-size: 15pt;
+			font-family: 'Cafeta';
+			color: $color_page;
+		}
+		.price{
+			margin: 5px;
+			color: #FF3500;
+			font-weight: bold;
+		}
+	}
+	.description{
+		text-align: justify;
+	}
+	.content{
+		text-align: justify;
+	}
+	.hit{
+		text-align: right;
+	}
+	.published{
+		text-align: right;
+		padding: 0 0 10px 0;
+		color: #ccc;
+	}
+}
+
+.purchase-show{
+	.item{
+		float: left;
+		width: 22%;
+		margin: 0 1% 10px;
+		padding: 0 0 10px 0;
+		border: 1px solid #E1E1E1;
+		.image{
+			margin: 0 auto 10px;
+			text-align: center;
+			overflow: hidden;
+			img{
+				max-width: 100%;
+				max-height: 200px;
+				border: 0;
+				transition: all 0.4s linear;
+				&:hover{
+					transform: scale(1.1);
+				}
+			}
+		}
+		h3.title{
+			font-size: 15pt;
+			font-family: 'Cafeta';
+			color: $color_page;
+		}
+		.price{
+			margin: 5px;
+			color: #FF3500;
+			font-weight: bold;
+		}
+	}
+	.description{
+		text-align: justify;
+	}
+	.content{
+		text-align: justify;
+	}
+	.hit{
+		text-align: right;
+	}
+	.published{
+		text-align: right;
+		padding: 0 0 10px 0;
+		color: #ccc;
+	}
+}
+
+/*------------------------------------------------
+** Custom
+**------------------------------------------------*/
+.custom{
+	img{
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+}
+
+/*------------------------------------------------
+** FOOTER
+**------------------------------------------------*/
+#footer {
+	height: 20px;
+	margin: 10px auto 0;
+	padding: 20px 0;
+	background: #2E2E2E;
+	.copyright{
+		color: white;
+		font-family: 'Cafeta';
+		font-size: 14pt;
+	}
+}
+
+/*================================
+    PAGING
+================================*/
+@import "paging";

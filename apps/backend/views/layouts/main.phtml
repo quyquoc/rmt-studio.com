@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"/>
+	<?= $this->tag->stylesheetLink(array('backend/images/favicon.ico','rel'=>'shortcut icon')); ?>
+	<?= $this->tag->getTitle() ?>
+	<?= $this->assets->outputCss() ?>
+	<?= $this->tag->stylesheetLink("backend/css/style.css"); ?>
+	<?= $this->tag->javascriptInclude("backend/js/jquery-1.10.1.min.js"); ?>
+	<?= $this->tag->javascriptInclude("backend/js/init.js"); ?>
+	<?= $this->tag->javascriptInclude("backend/js/hideshow.js"); ?>
+	
+	<!--<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="js/jquery.equalHeight.js"></script> -->
+	<script type="text/javascript">
+		$(document).ready(function(){ 
+			
+	      	//$(".tablesorter").tablesorter(); 
+	      	
+			//When page loads...
+			$(".table_content").hide(); //Hide all content
+			$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+			$(".table_content:first").show(); //Show first tab content
+
+			//On Click Event
+			$("ul.tabs li").click(function() {
+
+				$("ul.tabs li").removeClass("active"); //Remove any "active" class
+				$(this).addClass("active"); //Add "active" class to selected tab
+				$(".table_content").hide(); //Hide all tab content
+
+				var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+				$(activeTab).fadeIn(); //Fade in the active ID content
+				return false;
+			});
+	   	});
+
+	    $(function(){
+	        //$('.column').equalHeight();
+	    });
+	</script>
+</head>
+	<body>
+
+		<!-- BEGIN: header bar -->
+		<div id="header">
+			<h1 class="site_title"><a href="#"><?php echo (isset($site_title) && !empty($site_title)) ? $site_title : 'Administrator';?></a></h1>
+			<h2 class="module_title"><?php echo (isset($module_title) && !empty($module_title)) ? $module_title : '';?></h2><div class="btn_view_site"><a href="#">Trang chủ</a></div>
+		</div>
+		<!-- END: header bar -->
+		
+		<!-- BEGIN: secondary bar -->
+		<div id="secondary_bar">
+			<div class="user">
+				<p><?php echo (isset($user_name) ? $user_name : '');?></p>
+				<?= $this->tag->linkTo(array('admin/login/logout', 'Thoát','class'=>'logout'))?>
+			</div>
+			<div class="breadcrumbs_container">
+				<div class="breadcrumbs">
+					<a href="<?php echo $this->url->get();?>admin">Trang chủ</a>
+					<div class="breadcrumb_divider"></div>
+					<?php echo (isset($breadcrumb_cat) && !empty($breadcrumb_cat)) ? '<a class="current">'.$breadcrumb_cat.'</a>' : '<a class="current">Dashboard</a>';?>
+				</div>
+				<?php echo isset($launch_bar) ? '<div class="launch_bar">'.$launch_bar.'</div>' : '';?>
+			</div>
+		</div>
+		<!-- END: secondary bar -->
+		
+		<!-- BEGIN: sidebar -->
+		<div id="sidebar" class="column">
+			<h3>Thành viên</h3>
+			<ul class="toggle">
+				<li class="icn_categories"><?= $this->tag->linkTo(array('admin/department/index', 'Bộ phận'))?></li>
+				<li class="icn_users"><?= $this->tag->linkTo(array('admin/member/index', 'Thành viên'))?></li>
+				<li class="icn_settings"><?= $this->tag->linkTo(array('admin/permission-group/index', 'Nhóm quyền'))?></li>
+				<li class="icn_settings"><?= $this->tag->linkTo(array('admin/privilege/index', 'Mã quyền'))?></li>
+				<li class="icn_settings"><?= $this->tag->linkTo(array('admin/group-privilege/index', 'Phân quyền'))?></li>
+			</ul>
+			<h3>Tin tức</h3>
+			<ul class="toggle">
+				<li class="icn_categories"><?= $this->tag->linkTo(array('admin/news-category/index', 'Kênh thông tin'))?></li>
+				<li class="icn_news_article"><?= $this->tag->linkTo(array('admin/news-article/index', 'Bài viết'))?></li>
+				<li class="icn_tags"><?= $this->tag->linkTo(array('admin/news-tag/index', 'Thẻ tag'))?></li>
+				<li class="icn_comment"><?= $this->tag->linkTo(array('admin/news-comment/index', 'Bình luận'))?></li>
+			</ul>
+			<h3>Hình ảnh</h3>
+			<ul class="toggle">
+				<li class="icn_image_group"><?= $this->tag->linkTo(array('admin/image-group/index', 'Chủ đề'))?></li>
+				<li class="icn_image_group"><?= $this->tag->linkTo(array('admin/image-album/index', 'Album ảnh'))?></li>
+				<li class="icn_image"><?= $this->tag->linkTo(array('admin/image/index', 'Hình ảnh'))?></li>
+			</ul>
+			<h3>Quản lý dữ liệu</h3>
+			<ul class="toggle">
+				<li class="icn_users"><?= $this->tag->linkTo(array('admin/resource/index', 'Nhóm dữ liệu'))?></li>
+				<li class="icn_categories"><?= $this->tag->linkTo(array('admin/config/index', 'Mã dữ liệu'))?></li>
+				<li class="icn_categories"><?= $this->tag->linkTo(array('admin/resource-config/index', 'Cấp quyền dữ liệu'))?></li>
+				<li class="icn_folder"><a href="#" class="fileBrowse">Quản lý file</a></li>
+				<li class="icn_photo"><a href="#">Hình ảnh</a></li>
+				<li class="icn_video"><a href="#">Video</a></li>
+			</ul>
+			<h3>Hệ thống</h3>
+			<ul class="toggle">
+				<li class="icn_settings"><a href="#">Cấu hình</a></li>
+				<li class="icn_security"><a href="#">Phân quyền</a></li>
+			</ul>
+			<h3>Thiết kế web</h3>
+			<ul class="toggle">
+				<li class="icn_security"><?= $this->tag->linkTo(array('admin/menu/index', 'Menu'))?></li>
+				<li class="icn_settings"><?= $this->tag->linkTo(array('admin/element/index', 'Chức năng'))?></li>
+			</ul>
+			<h3>Cài đặt hệ thống</h3>
+			<ul class="toggle">
+				<li class="icn_settings"><a href="#">Cài đặt</a></li>
+				<li class="icn_settings"><a href="#">Thông tin</a></li>
+			</ul>
+			
+			<div id="footer">
+				<p><strong>Copyright &copy; 2011 Website Admin</strong></p>
+				<p>Theme by <a href="http://www.medialoot.com">MediaLoot</a></p>
+			</div>
+		</div>
+		<!-- END: sidebar -->
+
+		<!-- BEGIN: main -->
+		<div id="main" class="column">
+			<?= $this->getContent(); ?>
+		</div>
+		<!-- END: main -->
+
+	</body>
+	<?= $this->assets->outputJs() ?>
+</html>
