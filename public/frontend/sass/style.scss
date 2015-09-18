@@ -3,11 +3,18 @@ $color_a: 		#21C2F8;
 $color_a_hover: #000;
 $color_page:	#21C2F8;
 
-@font-face {
-    src: url("../font/UTM Cafeta.woff");
-    font-family: 'Cafeta';
+@font-face { 
+	src: url('../font/Raleway-Regular.ttf') format('truetype');
+	font-family: 'raleway';
 }
-
+*{
+	padding: 0;
+	margin: 0;
+	font-family: Arial, raleway, Tahoma;
+	font-size: 11pt;
+	line-height: 1.7;
+	color: black;
+}
 /* Essentials */
 html, div, map, dt, isindex, form, header, aside, section, section, article, footer {  
     display: block;  
@@ -41,20 +48,18 @@ a:hover {
 	height: 20px;
 }
 .wrapper{
-	width: 900px;
 	height: 100%;
-	margin: 0 auto;
-	padding: 0;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /*------------------------------------------------
 ** MODULE
 **------------------------------------------------*/
 .module{
-	border: 1px solid $color_page;
-	border-radius: 5px;
-	margin: 0 auto 10px;
-	overflow: hidden;
+	border: 0 none;
+    margin: 0 0 10px;
+    padding: 0;
 	.moduletitle{
 		height: 35px;
 		padding: 10px 0 0 10px;
@@ -63,9 +68,103 @@ a:hover {
 		font-family: 'Cafeta';
 		font-size: 14pt;
 	}
-	.modulecontent{
-		padding: 10px 20px;
-		background: #FFF;
+	.modulecontent{    
+		padding: 5px;
+    	text-align: left;
+	}
+}
+
+/*------------------------------------------------
+** HEADER
+**------------------------------------------------*/
+#header{
+	margin: 0;
+	height: 110px;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	background: white;
+	width: 100%;
+	.logo{
+		float: left;
+		margin: 7px 0 0 0;
+		width: 25%;
+		text-align: right;
+		position: relative;
+		height: 100%;
+		a{
+			float: right;
+			display: block;
+			width: 55%;
+			position: relative;
+			height: 100%;
+			bottom: 30px;
+		}
+		img{
+			width: 100%;
+			margin: 15px 0 0 0;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+	#menu{
+		float: left;
+		height: 50px;
+		width: 50%;
+		margin: 40px 0 0 0;
+		.module{
+		    border: 0 none;
+		    margin: 0;
+		    padding: 0;
+		    .modulecontent {
+			    background: none;
+			    padding: 0;
+			}
+		}
+	}
+	.social{
+		position: absolute;
+		right: 1%;
+		top: 62px;
+		.ico_fb{
+			float: right;
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			background: url(../images/icon_fb.png) no-repeat center / 100%;
+			opacity: 0.7;
+			cursor: pointer;
+		}
+		.ico_fb:hover{
+			opacity: 1;
+		}
+		.ico_be{
+			float: right;
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin-right: 10px;
+			background: url(../images/icon_be.png) no-repeat center / 100%;
+			opacity: 0.7;
+			cursor: pointer;
+		}
+		.ico_be:hover{
+			opacity: 1;
+		}
+		.ico_mail{
+			float: right;
+			display: block;
+			width: 27px;
+			height: 20px;
+			background: url(../images/icon_mail.png) no-repeat left / auto 100%;
+			opacity: 0.7;
+			cursor: pointer;
+		}
+		.ico_mail:hover{
+			opacity: 1;
+		}
 	}
 }
 
@@ -75,34 +174,19 @@ a:hover {
 @import "menunav";
 
 /*------------------------------------------------
-** HEADER
-**------------------------------------------------*/
-#header {
-	height: 50px;
-	background: $color_page;
-	margin: 0 auto 10px;
-}
-
-/*------------------------------------------------
 ** MAIN-CONTENT
 **------------------------------------------------*/
+
+#main-body {
+    min-height: 300px;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+}
 #main-content {
-	#left{
-		float: left;
-		width: 300px;
-		min-height: 500px;
-		background: #F7F7F7;
-	}
-	#center{
-		float: left;
-		width: 590px;
-		min-height: 500px;
-		background: #E8E8E8;
-		margin: 0 0 0 10px;
-	}
-	#right{
-		width: 0;
-		display: none;
+	#center{    
+		margin: 0;
+    	width: 100%;
 	}
 }
 
@@ -155,277 +239,6 @@ a:hover {
 }
 
 /*------------------------------------------------
-** Shop
-**------------------------------------------------*/
-.shop{
-	.item{
-		float: left;
-		width: 30%;
-		margin: 0 1%;
-		padding: 10px 0;
-		.image{
-			margin: 0 auto 10px;
-			text-align: center;
-			overflow: hidden;
-			height: 200px;    
-			display: table-cell;
-    		vertical-align: bottom;
-			img{
-				max-width: 150px;
-				max-height: 200px;
-				border: 0;
-				transition: all 0.4s linear;
-				&:hover{
-					transform: scale(1.1);
-				}
-			}
-		}
-		h3.title{
-			font-size: 15pt;
-			font-family: 'Cafeta';
-			color: $color_page;
-		}
-		.price, .saleoff{
-			color: #f96489;
-			font-weight: bold;
-		}
-		.cart{}
-	}
-	.description{
-		text-align: justify;
-	}
-	.content{
-		text-align: justify;
-	}
-	.hit{
-		text-align: right;
-	}
-	.published{
-		text-align: right;
-		padding: 0 0 10px 0;
-		color: #ccc;
-	}
-}
-
-.shop-show{
-	.item{
-		float: left;
-		width: 30%;
-		margin: 0 1%;
-		padding: 10px 0;
-		.image{
-			margin: 0 auto 10px;
-			text-align: center;
-			overflow: hidden;
-			img{
-				max-width: 150px;
-				max-height: 200px;
-				border: 0;
-				transition: all 0.4s linear;
-				&:hover{
-					transform: scale(1.1);
-				}
-			}
-		}
-		h3.title{
-			float: left;
-			width: 71%;
-			font-size: 15pt;
-			font-family: 'Cafeta';
-			color: $color_page;
-		}
-		.price{
-			float: right;
-			width: 20%;
-			margin: 6px;
-			color: #f96489;
-			font-weight: bold;
-		}
-		.cart{
-			float: right;
-		}
-	}
-	.description{
-		text-align: justify;
-	}
-	.content{
-		text-align: justify;
-	}
-	.hit{
-		text-align: right;
-	}
-	.published{
-		text-align: right;
-		padding: 0 0 10px 0;
-		color: #ccc;
-	}
-}
-
-/*---------- SHOP CART DETAIL ----------*/
-.shop-cart-detail{
-	.cartDetail{
-		background-color: #FFF;
-		padding: 10px;
-		.cartDetail-header{
-			border-left: solid 1px #CCC;
-			border-top: solid 1px #CCC;
-			background-color:#CCF;		
-		}
-		.col-th{
-			float: left;
-			font-weight: bold;
-			padding: 3px;
-			text-align: center;
-			border-right: solid 1px #CCC;
-			border-bottom: solid 1px #CCC;
-		}
-		.cartDetail-row{
-			border-left: solid 1px #CCC;	
-		}
-		.col-row{
-			float: left;	
-			padding: 5px 3px 3px 3px;
-			text-align: center;
-			border-right: solid 1px #CCC;
-			border-bottom: solid 1px #CCC;
-			height: 27px;
-			font-size: 11px;
-		}
-		a.itemLink:link, a.itemLink:active, a.itemLink:visited{
-			text-decoration: none;
-			color:#06C;
-		}
-		a.itemLink:hover{
-			text-decoration: underline;
-			color:#F00;
-		}
-	}
-	.cartDetail-button{
-		background:#FFF;
-		padding: 15px;	
-	}
-	.cartDetail-total{
-		background:#FFF;
-		padding: 5px 20px;	
-		text-align: right;
-		font-weight: bold;
-	}
-	.cartDetail-order{
-		background:#FFF;
-		padding: 5px 20px;	
-		text-align: left;
-		font-weight: bold;
-		label{
-			padding: 3;
-		}
-		div{
-			padding: 3px 3px 7px 3px;	
-			margin-bottom: 5px;
-			border-bottom: solid 1px #EEE;
-		}
-	}
-}
-
-/*------------------------------------------------
-** Purchase
-**------------------------------------------------*/
-.purchase{
-	.item{
-		float: left;
-		width: 22%;
-		margin: 0 1% 10px;
-		padding: 0 0 10px 0;
-		border: 1px solid #E1E1E1;
-		.image{
-			margin: 0 auto 10px;
-			text-align: center;
-			overflow: hidden;
-			img{
-				max-width: 100%;
-				max-height: 200px;
-				border: 0;
-				transition: all 0.4s linear;
-				&:hover{
-					transform: scale(1.1);
-				}
-			}
-		}
-		h3.title{
-			font-size: 15pt;
-			font-family: 'Cafeta';
-			color: $color_page;
-		}
-		.price{
-			margin: 5px;
-			color: #FF3500;
-			font-weight: bold;
-		}
-	}
-	.description{
-		text-align: justify;
-	}
-	.content{
-		text-align: justify;
-	}
-	.hit{
-		text-align: right;
-	}
-	.published{
-		text-align: right;
-		padding: 0 0 10px 0;
-		color: #ccc;
-	}
-}
-
-.purchase-show{
-	.item{
-		float: left;
-		width: 22%;
-		margin: 0 1% 10px;
-		padding: 0 0 10px 0;
-		border: 1px solid #E1E1E1;
-		.image{
-			margin: 0 auto 10px;
-			text-align: center;
-			overflow: hidden;
-			img{
-				max-width: 100%;
-				max-height: 200px;
-				border: 0;
-				transition: all 0.4s linear;
-				&:hover{
-					transform: scale(1.1);
-				}
-			}
-		}
-		h3.title{
-			font-size: 15pt;
-			font-family: 'Cafeta';
-			color: $color_page;
-		}
-		.price{
-			margin: 5px;
-			color: #FF3500;
-			font-weight: bold;
-		}
-	}
-	.description{
-		text-align: justify;
-	}
-	.content{
-		text-align: justify;
-	}
-	.hit{
-		text-align: right;
-	}
-	.published{
-		text-align: right;
-		padding: 0 0 10px 0;
-		color: #ccc;
-	}
-}
-
-/*------------------------------------------------
 ** Custom
 **------------------------------------------------*/
 .custom{
@@ -438,15 +251,34 @@ a:hover {
 /*------------------------------------------------
 ** FOOTER
 **------------------------------------------------*/
-#footer {
-	height: 20px;
-	margin: 10px auto 0;
-	padding: 20px 0;
-	background: #2E2E2E;
-	.copyright{
-		color: white;
-		font-family: 'Cafeta';
-		font-size: 14pt;
+#footer{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 35px;
+	padding: 5px 0;
+	&:hover{
+		background-color: rgba(0, 0, 0, .5);
+		transition: background-color 1s ease-in-out;
+	}
+	#copyright{
+		margin: 0 1% 0 7%;
+	}
+	p{
+		color: #78A1B9;
+		font-size: 11pt;
+	}
+	.ico_share{
+		float: right;
+		display: block;
+		width: 28px;
+		height: 24px;
+		margin: -25px 0 0 0;
+		background: url(../images/icon_share.png) no-repeat center / 100% auto;
+		cursor: pointer;
+		&:hover{
+			background: url(../images/icon_share_hover.png) no-repeat center / 100% auto;
+		}
 	}
 }
 

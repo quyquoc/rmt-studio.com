@@ -1,6 +1,14 @@
 @font-face {
-  src: url("../font/UTM Cafeta.woff");
-  font-family: 'Cafeta'; }
+  src: url("../font/Raleway-Regular.ttf") format("truetype");
+  font-family: 'raleway'; }
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, raleway, Tahoma;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: black; }
+
 /* Essentials */
 html, div, map, dt, isindex, form, header, aside, section, section, article, footer {
   display: block; }
@@ -34,19 +42,17 @@ a:hover {
   height: 20px; }
 
 .wrapper {
-  width: 900px;
   height: 100%;
   margin: 0 auto;
-  padding: 0; }
+  width: 100%; }
 
 /*------------------------------------------------
 ** MODULE
 **------------------------------------------------*/
 .module {
-  border: 1px solid #21C2F8;
-  border-radius: 5px;
-  margin: 0 auto 10px;
-  overflow: hidden; }
+  border: 0 none;
+  margin: 0 0 10px;
+  padding: 0; }
   .module .moduletitle {
     height: 35px;
     padding: 10px 0 0 10px;
@@ -55,107 +61,166 @@ a:hover {
     font-family: 'Cafeta';
     font-size: 14pt; }
   .module .modulecontent {
-    padding: 10px 20px;
-    background: #FFF; }
-
-/*------------------------------------------------
-** MENU
-**------------------------------------------------*/
-.menunav {
-  margin: 0 auto;
-  padding: 0;
-  height: 100%;
-  list-style: none;
-  position: relative; }
-  .menunav li {
-    float: left;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-    /* &:hover{
-    	background: #50CFFA;
-    	.submenu{
-    		display: block;
-    		list-style: none;
-    		position: absolute;
-    		padding: 5px;
-    		margin: 0;
-    		min-width: 200px;
-    		background: #50CFFA;
-    		li{
-    			width: 100%;
-    			a{
-    				background: #50CFFA;
-    				&:hover{
-    					background: $color_page;
-    				}
-    			}
-    		}
-    	}
-    }
-    &.line{
-    	background: #666;
-    	width: 0;
-    	height: 0;
-    } */ }
-    .menunav li a {
-      display: block;
-      height: 100%;
-      padding: 0 25px;
-      line-height: 50px;
-      background: #21C2F8;
-      color: #FFF; }
-      .menunav li a.active {
-        background: #FFF;
-        color: #21C2F8; }
-      .menunav li a:hover {
-        background: #50CFFA;
-        color: #FFF; }
-    .menunav li ul {
-      position: absolute;
-      left: -999999px;
-      list-style: none;
-      width: 190px;
-      background: #2191f0; }
-      .menunav li ul li {
-        width: 100%;
-        border-bottom: 1px solid white; }
-  .menunav li:hover ul {
-    left: -1px;
-    top: auto;
-    padding: 0; }
-  .menunav li:hover ul ul, .menunav li:hover ul ul ul, .menunav li:hover ul ul ul ul {
-    left: -9999px;
-    top: 0; }
-  .menunav li li:hover ul, .menunav li li li:hover ul, .menunav li li li li:hover ul {
-    left: 190px;
-    top: 0; }
+    padding: 5px;
+    text-align: left; }
 
 /*------------------------------------------------
 ** HEADER
 **------------------------------------------------*/
 #header {
-  height: 50px;
-  background: #21C2F8;
-  margin: 0 auto 10px; }
+  margin: 0;
+  height: 110px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background: white;
+  width: 100%; }
+  #header .logo {
+    float: left;
+    margin: 7px 0 0 0;
+    width: 25%;
+    text-align: right;
+    position: relative;
+    height: 100%; }
+    #header .logo a {
+      float: right;
+      display: block;
+      width: 55%;
+      position: relative;
+      height: 100%;
+      bottom: 30px; }
+    #header .logo img {
+      width: 100%;
+      margin: 15px 0 0 0;
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+  #header #menu {
+    float: left;
+    height: 50px;
+    width: 50%;
+    margin: 40px 0 0 0; }
+    #header #menu .module {
+      border: 0 none;
+      margin: 0;
+      padding: 0; }
+      #header #menu .module .modulecontent {
+        background: none;
+        padding: 0; }
+  #header .social {
+    position: absolute;
+    right: 1%;
+    top: 62px; }
+    #header .social .ico_fb {
+      float: right;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      background: url(../images/icon_fb.png) no-repeat center/100%;
+      opacity: 0.7;
+      cursor: pointer; }
+    #header .social .ico_fb:hover {
+      opacity: 1; }
+    #header .social .ico_be {
+      float: right;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      background: url(../images/icon_be.png) no-repeat center/100%;
+      opacity: 0.7;
+      cursor: pointer; }
+    #header .social .ico_be:hover {
+      opacity: 1; }
+    #header .social .ico_mail {
+      float: right;
+      display: block;
+      width: 27px;
+      height: 20px;
+      background: url(../images/icon_mail.png) no-repeat left/auto 100%;
+      opacity: 0.7;
+      cursor: pointer; }
+    #header .social .ico_mail:hover {
+      opacity: 1; }
+
+/*------------------------------------------------
+** MENU
+**------------------------------------------------*/
+.menu-navigation {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  float: right; }
+  .menu-navigation ul.menunav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 50px; }
+    .menu-navigation ul.menunav li {
+      float: right;
+      position: relative;
+      margin: 0;
+      height: 50px; }
+      @media only screen and (max-width: 615px) {
+        .menu-navigation ul.menunav li {
+          width: 49%; } }
+      .menu-navigation ul.menunav li.active a {
+        color: black;
+        font-weight: bold; }
+      .menu-navigation ul.menunav li a {
+        display: block;
+        padding: 30px 0 0px 25px;
+        height: 25px;
+        text-align: right;
+        color: #6F6F6F;
+        font-weight: normal;
+        font-size: 12pt;
+        text-transform: lowercase; }
+        .menu-navigation ul.menunav li a:hover {
+          color: black; }
+      .menu-navigation ul.menunav li ul {
+        display: none;
+        height: auto; }
+        .menu-navigation ul.menunav li ul li {
+          width: 100%;
+          border-bottom: 1px solid white; }
+      .menu-navigation ul.menunav li:hover ul {
+        font-size: 13px;
+        display: block;
+        position: absolute;
+        top: 40px;
+        min-width: 150px;
+        left: 0;
+        z-index: 99;
+        background: #1A82D7;
+        border-radius: 3px;
+        text-align: center;
+        padding: 0;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); }
+        .menu-navigation ul.menunav li:hover ul li a {
+          display: block;
+          width: 175px;
+          text-align: left;
+          background: none;
+          color: white; }
+          .menu-navigation ul.menunav li:hover ul li a:hover {
+            background: #1878C7; }
 
 /*------------------------------------------------
 ** MAIN-CONTENT
 **------------------------------------------------*/
-#main-content #left {
-  float: left;
-  width: 300px;
-  min-height: 500px;
-  background: #F7F7F7; }
+#main-body {
+  min-height: 300px;
+  position: absolute;
+  top: 80px;
+  width: 100%; }
+
 #main-content #center {
-  float: left;
-  width: 590px;
-  min-height: 500px;
-  background: #E8E8E8;
-  margin: 0 0 0 10px; }
-#main-content #right {
-  width: 0;
-  display: none; }
+  margin: 0;
+  width: 100%; }
 
 /*------------------------------------------------
 ** News
@@ -193,213 +258,6 @@ a:hover {
   background: #ccc;*/ }
 
 /*------------------------------------------------
-** Shop
-**------------------------------------------------*/
-.shop .item {
-  float: left;
-  width: 30%;
-  margin: 0 1%;
-  padding: 10px 0; }
-  .shop .item .image {
-    margin: 0 auto 10px;
-    text-align: center;
-    overflow: hidden;
-    height: 200px;
-    display: table-cell;
-    vertical-align: bottom; }
-    .shop .item .image img {
-      max-width: 150px;
-      max-height: 200px;
-      border: 0;
-      transition: all 0.4s linear; }
-      .shop .item .image img:hover {
-        transform: scale(1.1); }
-  .shop .item h3.title {
-    font-size: 15pt;
-    font-family: 'Cafeta';
-    color: #21C2F8; }
-  .shop .item .price, .shop .item .saleoff {
-    color: #f96489;
-    font-weight: bold; }
-.shop .description {
-  text-align: justify; }
-.shop .content {
-  text-align: justify; }
-.shop .hit {
-  text-align: right; }
-.shop .published {
-  text-align: right;
-  padding: 0 0 10px 0;
-  color: #ccc; }
-
-.shop-show .item {
-  float: left;
-  width: 30%;
-  margin: 0 1%;
-  padding: 10px 0; }
-  .shop-show .item .image {
-    margin: 0 auto 10px;
-    text-align: center;
-    overflow: hidden; }
-    .shop-show .item .image img {
-      max-width: 150px;
-      max-height: 200px;
-      border: 0;
-      transition: all 0.4s linear; }
-      .shop-show .item .image img:hover {
-        transform: scale(1.1); }
-  .shop-show .item h3.title {
-    float: left;
-    width: 71%;
-    font-size: 15pt;
-    font-family: 'Cafeta';
-    color: #21C2F8; }
-  .shop-show .item .price {
-    float: right;
-    width: 20%;
-    margin: 6px;
-    color: #f96489;
-    font-weight: bold; }
-  .shop-show .item .cart {
-    float: right; }
-.shop-show .description {
-  text-align: justify; }
-.shop-show .content {
-  text-align: justify; }
-.shop-show .hit {
-  text-align: right; }
-.shop-show .published {
-  text-align: right;
-  padding: 0 0 10px 0;
-  color: #ccc; }
-
-/*---------- SHOP CART DETAIL ----------*/
-.shop-cart-detail .cartDetail {
-  background-color: #FFF;
-  padding: 10px; }
-  .shop-cart-detail .cartDetail .cartDetail-header {
-    border-left: solid 1px #CCC;
-    border-top: solid 1px #CCC;
-    background-color: #CCF; }
-  .shop-cart-detail .cartDetail .col-th {
-    float: left;
-    font-weight: bold;
-    padding: 3px;
-    text-align: center;
-    border-right: solid 1px #CCC;
-    border-bottom: solid 1px #CCC; }
-  .shop-cart-detail .cartDetail .cartDetail-row {
-    border-left: solid 1px #CCC; }
-  .shop-cart-detail .cartDetail .col-row {
-    float: left;
-    padding: 5px 3px 3px 3px;
-    text-align: center;
-    border-right: solid 1px #CCC;
-    border-bottom: solid 1px #CCC;
-    height: 27px;
-    font-size: 11px; }
-  .shop-cart-detail .cartDetail a.itemLink:link, .shop-cart-detail .cartDetail a.itemLink:active, .shop-cart-detail .cartDetail a.itemLink:visited {
-    text-decoration: none;
-    color: #06C; }
-  .shop-cart-detail .cartDetail a.itemLink:hover {
-    text-decoration: underline;
-    color: #F00; }
-.shop-cart-detail .cartDetail-button {
-  background: #FFF;
-  padding: 15px; }
-.shop-cart-detail .cartDetail-total {
-  background: #FFF;
-  padding: 5px 20px;
-  text-align: right;
-  font-weight: bold; }
-.shop-cart-detail .cartDetail-order {
-  background: #FFF;
-  padding: 5px 20px;
-  text-align: left;
-  font-weight: bold; }
-  .shop-cart-detail .cartDetail-order label {
-    padding: 3; }
-  .shop-cart-detail .cartDetail-order div {
-    padding: 3px 3px 7px 3px;
-    margin-bottom: 5px;
-    border-bottom: solid 1px #EEE; }
-
-/*------------------------------------------------
-** Purchase
-**------------------------------------------------*/
-.purchase .item {
-  float: left;
-  width: 22%;
-  margin: 0 1% 10px;
-  padding: 0 0 10px 0;
-  border: 1px solid #E1E1E1; }
-  .purchase .item .image {
-    margin: 0 auto 10px;
-    text-align: center;
-    overflow: hidden; }
-    .purchase .item .image img {
-      max-width: 100%;
-      max-height: 200px;
-      border: 0;
-      transition: all 0.4s linear; }
-      .purchase .item .image img:hover {
-        transform: scale(1.1); }
-  .purchase .item h3.title {
-    font-size: 15pt;
-    font-family: 'Cafeta';
-    color: #21C2F8; }
-  .purchase .item .price {
-    margin: 5px;
-    color: #FF3500;
-    font-weight: bold; }
-.purchase .description {
-  text-align: justify; }
-.purchase .content {
-  text-align: justify; }
-.purchase .hit {
-  text-align: right; }
-.purchase .published {
-  text-align: right;
-  padding: 0 0 10px 0;
-  color: #ccc; }
-
-.purchase-show .item {
-  float: left;
-  width: 22%;
-  margin: 0 1% 10px;
-  padding: 0 0 10px 0;
-  border: 1px solid #E1E1E1; }
-  .purchase-show .item .image {
-    margin: 0 auto 10px;
-    text-align: center;
-    overflow: hidden; }
-    .purchase-show .item .image img {
-      max-width: 100%;
-      max-height: 200px;
-      border: 0;
-      transition: all 0.4s linear; }
-      .purchase-show .item .image img:hover {
-        transform: scale(1.1); }
-  .purchase-show .item h3.title {
-    font-size: 15pt;
-    font-family: 'Cafeta';
-    color: #21C2F8; }
-  .purchase-show .item .price {
-    margin: 5px;
-    color: #FF3500;
-    font-weight: bold; }
-.purchase-show .description {
-  text-align: justify; }
-.purchase-show .content {
-  text-align: justify; }
-.purchase-show .hit {
-  text-align: right; }
-.purchase-show .published {
-  text-align: right;
-  padding: 0 0 10px 0;
-  color: #ccc; }
-
-/*------------------------------------------------
 ** Custom
 **------------------------------------------------*/
 .custom img {
@@ -410,14 +268,29 @@ a:hover {
 ** FOOTER
 **------------------------------------------------*/
 #footer {
-  height: 20px;
-  margin: 10px auto 0;
-  padding: 20px 0;
-  background: #2E2E2E; }
-  #footer .copyright {
-    color: white;
-    font-family: 'Cafeta';
-    font-size: 14pt; }
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+  padding: 5px 0; }
+  #footer:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 1s ease-in-out; }
+  #footer #copyright {
+    margin: 0 1% 0 7%; }
+  #footer p {
+    color: #78A1B9;
+    font-size: 11pt; }
+  #footer .ico_share {
+    float: right;
+    display: block;
+    width: 28px;
+    height: 24px;
+    margin: -25px 0 0 0;
+    background: url(../images/icon_share.png) no-repeat center/100% auto;
+    cursor: pointer; }
+    #footer .ico_share:hover {
+      background: url(../images/icon_share_hover.png) no-repeat center/100% auto; }
 
 /*================================
     PAGING

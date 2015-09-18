@@ -16,15 +16,30 @@
 	<meta name="author" content="Rmt-studio" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<base target='_self'/>
-	
+
 	<?= $this->tag->stylesheetLink(array('frontend/favicon.ico','rel'=>'shortcut icon')); ?>
 	<?= $this->tag->getTitle(); ?>
 	<?= $this->tag->stylesheetLink("frontend/css/style.css"); ?>
+	<?= $this->tag->stylesheetLink("frontend/css/default.css"); ?>
+	<?= $this->tag->stylesheetLink("frontend/css/component.css"); ?>
 	<?= $this->assets->outputCss(); ?>
 	<?= $this->tag->javascriptInclude("frontend/js/jquery-1.8.2.min.js"); ?>
+	<?= $this->tag->javascriptInclude("frontend/js/modernizr.custom.js"); ?>
 	<?= $this->assets->outputJs(); ?>
 </head>
 <body>
 	<?= $this->getContent(); ?>
+
+	<?= $this->tag->javascriptInclude("frontend/js/masonry.pkgd.min.js"); ?>
+	<?= $this->tag->javascriptInclude("frontend/js/imagesloaded.js"); ?>
+	<?= $this->tag->javascriptInclude("frontend/js/classie.js"); ?>
+	<?= $this->tag->javascriptInclude("frontend/js/AnimOnScroll.js"); ?>
+	<script>
+		new AnimOnScroll( document.getElementById( 'grid' ), {
+			minDuration : 0.4,
+			maxDuration : 0.7,
+			viewportFactor : 0.2
+		} );
+	</script>
 </body>
 </html>

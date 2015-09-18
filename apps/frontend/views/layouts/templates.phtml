@@ -13,21 +13,42 @@
 	<div id="header">
 		<div class="wrapper">
 			<div class="logo">
-				<a href="<?php echo '';?>"><img src="logo.png" /></a>
+				<a href="<?php echo $this->url->get();?>"><img src="<?php echo PUBLIC_URL.'frontend/images/logo.png';?>" /></a>
 			</div>
-			<?php $this->menu->show(1); ?>
+			<div id="menu">
+				<div class="menu-navigation">
+					<div class="moduletable">
+						<div class="modulecontent">
+							<?php $this->menu->show(1); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="social">
+				<div class="moduletable">
+					<div class="modulecontent">
+						<div>
+							<a class="ico_mail" onclick="javascript:window.open('mailto:rmtarch@gmail.com');">&nbsp;</a>
+							<a class="ico_be" onclick="javascript:window.open('https://www.behance.net/rMtArc','_blank');" target="_blank">&nbsp;</a>
+							<a class="ico_fb" onclick="javascript:window.open('https://www.facebook.com/rmtarc','_blank');" target="_blank">&nbsp;</a>
+						</div>
+					</div>
+				</div>
+			</div>												
 			<div class="clr"></div>
 		</div>
 	</div>
 	<!-- END: HEADER -->
 
 	<!-- BEGIN: MAIN-CONTNENT -->
-	<div id="main-content">
-		<div class="wrapper">
-			<div id="center">
-				<?php echo $this->getContent();?>
+	<div id="main-body">
+		<div id="main-content">
+			<div class="wrapper">
+				<div id="center">
+					<?php echo $this->getContent();?>
+				</div>
+				<div class="clear"></div>
 			</div>
-			<div class="clear"></div>
 		</div>
 	</div>
 	<!-- END: MAIN-CONTNENT -->
@@ -37,7 +58,7 @@
 		<div class="wrapper">
 			<div id="copyright">
 				<p>&copy Copyright 2015 Rmt Studio</p>
-				<p><a class="ico_share" onclick="javascript:fbShare('<?php //echo 'http://'.$_SERVER['HTTP_HOST'].$this->url();?>', 'Fb Share', 'Facebook share popup', '', 520, 350)">&#160;</a><a class="ico_like" href="">&#160;</a></p>
+				<p><a class="ico_share" onclick="javascript:fbShare('<?php echo 'http://'.$_SERVER['HTTP_HOST'].$this->url->get();?>', 'Fb Share', 'Facebook share popup', '', 520, 350)">&#160;</a><a class="ico_like" href="">&#160;</a></p>
 			</div>
 		</div>
 	</div>
@@ -57,5 +78,4 @@
 	        var winLeft = (screen.width / 2) - (winWidth / 2);
 	        window.open('http://www.facebook.com/sharer.php?app_id=1489595237990958&sdk=joey&u=' + url + '&ref=plugin', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
 	    }
-
 	</script>

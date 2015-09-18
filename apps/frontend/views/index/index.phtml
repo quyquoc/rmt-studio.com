@@ -1,0 +1,10 @@
+
+		<div class="container">
+			<?php if($list_item): ?>
+				<ul class="grid effect-1" id="grid">
+					<?php foreach ($list_item as $key => $value): ?>
+						<li><a href=""><img src="<?php echo PUBLIC_URL.$value->image;?>"></a></li>
+					<?php endforeach;?>
+				</ul>
+			<?php endif;?>
+		</div>

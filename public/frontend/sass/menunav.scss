@@ -1,83 +1,76 @@
-
-.menunav{
-	margin: 0 auto;
+.menu-navigation{
 	padding: 0;
-	height: 100%;
-	list-style: none;
-	position: relative;
-	li{
-		float: left;
-		margin: 0 auto;
-		padding: 0;
-		position: relative;
-		a{
-			display: block;
-			height: 100%;
-			padding: 0 25px;
-			line-height: 50px;
-			background: $color_page;
-			color: #FFF;
-			&.active{
-				background: #FFF;
-				color: $color_page;
+	margin: 0;
+	background: transparent;
+	border: 0;
+	width: 100%;
+	float: right;
+	ul.menunav{
+	    padding: 0; 
+	    margin: 0; 
+	    list-style: none;
+	    height: 50px;
+		li{
+		    float: right;
+		    position:relative;
+		    margin: 0;
+		    height: 50px;					    
+			@media only screen and (max-width: 615px) {	
+				width: 49%;
 			}
-			&:hover{
-				background: #50CFFA;
-				color: #FFF;
+			&.active a{
+				color: black;
+				font-weight: bold;
 			}
-		}
-		ul{
-			position: absolute;
-			left: -999999px;
-			list-style: none;
-			width: 190px;
-			background: #2191f0;
-			li{
-				width: 100%;
-				border-bottom: 1px solid white;
+			a{				
+			    display:block;
+			    padding: 30px 0 0px 25px;
+				height: 25px;
+			    text-align: right;
+			    color: #6F6F6F;
+			    font-weight: normal;
+			    font-size: 12pt;
+				text-transform: lowercase;
+				&:hover{
+    				color: black;
+				}
 			}
-		}
-
-		/* &:hover{
-			background: #50CFFA;
-			.submenu{
-				display: block;
-				list-style: none;
-				position: absolute;
-				padding: 5px;
-				margin: 0;
-				min-width: 200px;
-				background: #50CFFA;
+			ul{
+			    display: none;
+			    height: auto;
 				li{
 					width: 100%;
-					a{
-						background: #50CFFA;
-						&:hover{
-							background: $color_page;
+					border-bottom: 1px solid white;
+				}
+			}
+			&:hover {
+				ul { 
+				    font-size:13px; 
+				    display:block; 
+				    position:absolute; 
+				    top:40px; 
+				    min-width:150px; 
+				    left:0;
+				    z-index: 99;
+				    background: #1A82D7;
+					border-radius: 3px;
+					text-align: center;
+					padding: 0;
+					box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+					li a {
+					    display:block;
+					    width:175px; 
+					    text-align:left;
+					    background: none;
+					    color: white;
+					    &:hover {
+						    background: #1878C7;
 						}
 					}
 				}
 			}
 		}
-		&.line{
-			background: #666;
-			width: 0;
-			height: 0;
-		} */
-	}
-	li:hover ul{
-		left: -1px;
-	    top: auto;
-	    padding: 0;
-	}
-	li:hover ul ul,li:hover ul ul ul,li:hover ul ul ul ul
-	{
-	    left: -9999px;
-	    top:0;
-	}
-	li li:hover ul,li li li:hover ul,li li li li:hover ul,
-	{
-		left: 190px;
-		top:0;
 	}
 }
+
+
