@@ -134,6 +134,7 @@ class News_article extends Model {
         return array(
             'id'        	=>  'id', 
             'title'      	=>  'title', 
+            'code'          =>  'code',
             'description'   =>  'description',
             'content'       =>  'content',
             'feature'       =>  'feature',
