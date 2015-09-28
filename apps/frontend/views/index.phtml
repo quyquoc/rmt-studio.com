@@ -22,9 +22,13 @@
 	<?= $this->tag->stylesheetLink("frontend/css/style.css"); ?>
 	<?= $this->tag->stylesheetLink("frontend/css/default.css"); ?>
 	<?= $this->tag->stylesheetLink("frontend/css/component.css"); ?>
+	<?= $this->tag->stylesheetLink("library/fancybox/jquery.fancybox.css"); ?>
 	<?= $this->assets->outputCss(); ?>
-	<?= $this->tag->javascriptInclude("frontend/js/jquery-1.8.2.min.js"); ?>
+	<?= $this->tag->javascriptInclude("frontend/js/jquery-1.10.1.min.js"); ?>
 	<?= $this->tag->javascriptInclude("frontend/js/modernizr.custom.js"); ?>
+	<?= $this->tag->javascriptInclude("library/fancybox/jquery.fancybox.js"); ?>
+	<?= $this->tag->javascriptInclude("library/fancybox/jquery.fancybox.pack.js"); ?>
+	<?= $this->tag->javascriptInclude("library/fancybox/jquery.mousewheel-3.0.6.pack.js"); ?>
 	<?= $this->assets->outputJs(); ?>
 </head>
 <body>
@@ -40,6 +44,31 @@
 			maxDuration : 0.7,
 			viewportFactor : 0.2
 		} );
+
+		$(".fancybox").fancybox({
+		    padding 	: 0,
+		    width 		: '99%',
+		    height 		: '99%',
+		    maxWidth	: '99%',
+		    maxHeight	: '99%',
+		    openEffect	: 'elastic',
+	    	closeEffect	: 'elastic',
+	    	closeBtn 	: false,
+
+	    	helpers : {
+	    		thumbs : {
+		            width: 50,
+		            height: 50
+		        },
+	    		title 	: {
+	    			type : 'inside'
+	    		},
+	    		overlay : {
+					closeClick : true,
+					locked     : false
+				}
+			}
+		});
 	</script>
 </body>
 </html>

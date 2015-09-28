@@ -30,6 +30,16 @@ class Init extends Component{
 						$news->$temp[1]($value->id);
 						break;
 
+					case 'shop':
+						$shop = new \Modules\Frontend\Elements\Shop;
+						$shop->$temp[1]($value->id);
+						break;
+
+					case 'purchase':
+						$purchase = new \Modules\Frontend\Elements\Purchase;
+						$purchase->$temp[1]($value->id);
+						break;
+
 					case 'custom':
 						$custom = new \Modules\Frontend\Elements\Custom;
 						$custom->$temp[1]($value->id);
@@ -40,7 +50,6 @@ class Init extends Component{
 				}
 			}		
 		}
-
 	}
 }
 

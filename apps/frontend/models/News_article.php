@@ -22,6 +22,12 @@ class News_article extends Model {
      *
      * @var string
      */
+    public $code;
+
+    /**
+     *
+     * @var string
+     */
     public $description;
 
     /**
@@ -133,8 +139,8 @@ class News_article extends Model {
     public function columnMap(){
         return array(
             'id'        	=>  'id', 
-            'title'      	=>  'title', 
-            'code'          =>  'code',
+            'title'         =>  'title', 
+            'code'      	=>  'code', 
             'description'   =>  'description',
             'content'       =>  'content',
             'feature'       =>  'feature',
@@ -158,19 +164,11 @@ class News_article extends Model {
     }
 
     public function initialize(){
-        $this->belongsTo('creator_id', '\Modules\Backend\Models\Member', 'id', array(
-            'alias' => 'member',
-            'reusable' => true
-        ));
         $this->belongsTo('category_id', '\Modules\Frontend\Models\News_category', 'id', array(
             'alias' => 'news_category',
             'reusable' => true
         ));
-    }
-
-    public function getCode(){
-        return "a";
-    }  
+    } 
 }
 
 /* End of file News_article.php */

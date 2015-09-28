@@ -1,6 +1,6 @@
 <?= $this->tag->form("{$uri}index"); ?>
 	<div class="toolbar">
-		<?= $this->tag->linkTo(array("{$uri}add", 'Thêm mới','class'=>'toolbar_btn add fancybox fancybox.iframe'))?>
+		<?= $this->tag->linkTo(array("{$uri}add/{$menu_id}", 'Thêm mới','class'=>'toolbar_btn add'))?>
 		<input type="submit" name="active" value="Kích hoạt" class="toolbar_btn active">
 		<input type="submit" name="no_active" value="Đóng" class="toolbar_btn no_active">
 		<input type="submit" name="order" value="Sắp xếp" class="toolbar_btn order">
@@ -19,7 +19,7 @@
 					<thead> 
 						<tr> 
 							<th class="header" style="width:20px;">#</th>
-							<th class="header" style="width:30px;"><input type="checkbox"  onchange="togglecheckboxes(this,'cbgroúp')" value=""></th> 
+							<th class="header" style="width:30px;"><input type="checkbox"  onchange="togglecheckboxes(this,'cbgroup')" value=""></th> 
 							<th class="header">Tên</th> 
 							<th class="header">Thuộc menu</th> 
 							<th class="header" style="width:80px;">Trạng thái</th> 
@@ -31,12 +31,12 @@
 						<?php foreach ($data as $key => $value) { ?>
 							<tr> 
 								<td><?= ++$key ?></td> 
-								<td><input type="checkbox" id="cb1_<?= ++$key ?>" name="checkbox[]" class="cbgroup" value="<?= $value->id ?>"></td> 
+								<td><input type="checkbox" id="cb1_<?= ++$key ?>" name="checkbox[]" class="cbgroup" value="<?= $value->id ?>"></td>
 								<td style="text-align:left;padding-left:<?= $value->getLevel($value->level,'padding') ?>"><?= $this->tag->linkTo(array("{$uri}edit/{$value->id}","{$value->name}","class"=>"{$value->getLevel($value->level,'class')}"))?></td> 
 								<td><?= $value->menu->name ?></td>
 								<td><?= $this->tag->linkTo(array("{$uri}status/{$value->id}","a",'class'=>"icn {$plugin->getStatusDetail($value->status)}"))?></td> 
 								<td><input type="text" name='possition[<?= $value->id ?>]' value="<?= $value->position ?>"></td>
-								<td><a ref="<?= $value->id ?>" link="<?= $this->url->get()."{$uri}delete/" ?>" title="<?= $name_confirm." ".$value->name ?>" class="icn icn_delete"></a></td>   
+								<td><a ref="<?= $value->id ?>" link="<?= $this->url->get()."{$uri}delete/" ?>" title="<?= $name_confirm." ".$value->name ?>" class="icn icn_delete"></a></td>  
 							</tr>
 						<?php } ?>
 					</tbody> 

@@ -45,12 +45,6 @@ class News_category extends Model {
 
     /**
      *
-     * @var text
-     */
-    public $params;
-
-    /**
-     *
      * @var integer
      */
     public $position;
@@ -69,7 +63,6 @@ class News_category extends Model {
             'image'			=>  'image',
             'description'	=>	'description',
             'status'    	=>  'status', 
-            'params'        =>  'params',
             'position'    	=>  'position', 
             'parents'		=>	'parents'
         );

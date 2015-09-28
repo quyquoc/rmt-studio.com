@@ -32,27 +32,7 @@ class News_article extends Form {
 		// Config tab
 		$this->add(new Text("link"));
 
-		$params_show_image = new Select('params[show_image]', array('2'=>'Mặc định', '0'=>'Không', '1'=>'Có'));
-		$params_show_image->setDefault($system->getParams($model,array('name'=>'show_image','default'=>2)));
-		$this->add($params_show_image);
-	
-		$params_show_title = new Select('params[show_title]', array('2'=>'Mặc định', '0'=>'Không', '1'=>'Có'));
-		$params_show_title->setDefault($system->getParams($model,array('name'=>'show_title','default'=>2)));
-		$this->add($params_show_title);
-
-		$params_description = new Select('params[show_description]', array('2'=>'Mặc định', '0'=>'Không', '1'=>'Có'));
-		$params_description->setDefault($system->getParams($model,array('name'=>'show_description','default'=>2)));
-		$this->add($params_description);
-
-		$params_show_published = new Select('params[show_published]', array('2'=>'Mặc định', '0'=>'Không', '1'=>'Có'));
-		$params_show_published->setDefault($system->getParams($model,array('name'=>'show_published','default'=>2)));
-		$this->add($params_show_published);
-		
-		$params_show_hits = new Select('params[show_hits]', array('2'=>'Mặc định', '0'=>'Không', '1'=>'Có'));
-		$params_show_hits->setDefault($system->getParams($model,array('name'=>'show_hits','default'=>2)));
-		$this->add($params_show_hits);
-
-		$this->add(new Select('url_target', array('2'=>'Mặc định', 'normal'=>'Bình thường','_blank'=>'Mở trang mới')));
+		$this->add(new Select('url_target', array('normal'=>'Bình thường','_blank'=>'Mở trang mới')));
 		$this->add(new Text("published", array('data-format'=>'yyyy-MM-dd hh:mm:ss', 'value'=>date('d-m-Y H:i:s'))));
 		$this->add(new Text("position"));
 

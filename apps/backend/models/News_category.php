@@ -17,18 +17,17 @@ class News_category extends Model {
      */
     public $id;
 
+    /**
+     *
+     * @var string
+     */
+    public $title;
 
     /**
      *
      * @var string
      */
     public $code;
-
-    /**
-     *
-     * @var string
-     */
-    public $title;
 
     /**
      *
@@ -50,12 +49,6 @@ class News_category extends Model {
 
     /**
      *
-     * @var text
-     */
-    public $params;
-
-    /**
-     *
      * @var integer
      */
     public $position;
@@ -74,7 +67,6 @@ class News_category extends Model {
             'image'			=>  'image',
             'description'	=>	'description',
             'status'    	=>  'status', 
-            'params'        =>  'params',
             'position'    	=>  'position', 
             'parents'		=>	'parents'
         );

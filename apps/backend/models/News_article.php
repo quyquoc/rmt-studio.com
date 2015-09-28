@@ -23,6 +23,12 @@ class News_article extends Model {
      *
      * @var string
      */
+    public $code;
+
+    /**
+     *
+     * @var string
+     */
     public $description;
 
     /**
@@ -134,7 +140,8 @@ class News_article extends Model {
     public function columnMap(){
         return array(
             'id'        	=>  'id', 
-            'title'      	=>  'title', 
+            'title'         =>  'title', 
+            'code'      	=>  'code', 
             'description'   =>  'description',
             'content'       =>  'content',
             'feature'       =>  'feature',

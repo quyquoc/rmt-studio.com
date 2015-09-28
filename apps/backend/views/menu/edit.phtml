@@ -13,6 +13,10 @@
 						<?= $form->render("name", array("class"=>"txt_medium {$is_error}")) ?>
 					</div>
 					<div class="row">
+						<label>Mã</label>
+						<?= $form->render("code", array("class"=>"txt_medium", 'readonly'=>true)) ?>
+					</div>	
+					<div class="row">
 						<label>Kích hoạt</label>
 						<?= $form->render("status", array("class"=>"medium")) ?>
 					</div>

@@ -596,7 +596,7 @@ class ControllerBase extends Controller {
 	}
 
 	/**
-	 *	Hàm  chuyển đến trạng thái của controller trước đó
+	 *	Hàm chuyển đến trạng thái của controller trước đó
 	 */
 	protected function getStatusPage(){
 		if($this->getPage() != null){

@@ -29,13 +29,7 @@ class NewsArticleController extends ControllerBase{
         $this->view->form = $this->getForm();
         if ($this->request->isPost() == true) {
 
-            // thong tin cau hinh
-            foreach ($_POST['params'] as $key => $value) {
-                $params .= $key.'='.$value.';';
-            }
-
         	$add = array(
-                    'params'    =>  $params,
         			'hits'		=>	'0',
         			'created'	=>	date('Y-m-d H:i:s'),
         			'updated'	=>	date('Y-m-d H:i:s'),
@@ -54,12 +48,7 @@ class NewsArticleController extends ControllerBase{
         $this->view->form = $this->getForm($model);
         if ($this->request->isPost() == true) {
 
-            // thong tin cau hinh
-            foreach ($_POST['params'] as $key => $value) {
-                $params .= $key.'='.$value.';';
-            }
             $update = array(
-                    'params'    =>  $params,
                     'updated'   =>  date('Y-m-d H:i:s'),
             );
 

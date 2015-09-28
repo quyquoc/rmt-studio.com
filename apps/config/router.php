@@ -35,37 +35,15 @@
 		'controller' 	=> 'index',
 		'action' 		=> 'index',
 	));
-	$router->add('/tin-tuc/:params', array(
+	$router->add('/news/:params', array(
 		'module' 		=> 	'frontend',
 		'controller' 	=> 	'news',
 		'action' 		=> 	'index',
 		'params'		=> 	1,
 	));
-	$router->add('/shop/:params', array(
+	$router->add('/contact', array(
 		'module' 		=> 	'frontend',
-		'controller' 	=> 	'shop',
-		'action' 		=> 	'index',
-		'params'		=> 	1,
-	));
-	$router->add('/shop/gio-hang', array(
-		'module' 		=> 	'frontend',
-		'controller' 	=> 	'shop',
-		'action' 		=> 	'viewcart',
-	));
-	$router->add('/shop/mua-hang/:params', array(
-		'module' 		=> 	'frontend',
-		'controller' 	=> 	'shop',
-		'action' 		=> 	'additem',
-		'params'		=> 	1,
-	));
-	$router->add('/shop/dat-hang', array(
-		'module' 		=> 	'frontend',
-		'controller' 	=> 	'shop',
-		'action' 		=> 	'order',
-	));
-	$router->add('/purchase/:params', array(
-		'module' 		=> 	'frontend',
-		'controller' 	=> 	'purchase',
+		'controller' 	=> 	'contact',
 		'action' 		=> 	'index',
 		'params'		=> 	1,
 	));

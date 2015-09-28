@@ -8,117 +8,49 @@
 			<div class="module_content">
 				<ul class="tab-row">
 					<li>Thông tin chính</li>
-					<li>Cấu hình</li>
 				</ul>
 				<div class="tab-group">
 					<fieldset class="tab-content main">
 						<div class="row hor">
-							<label>Tiêu đề</label>
+							<label>Tên</label>
 							<?php $is_error = isset($error) && in_array("name", $error) ? "error":"" ?>
 							<?= $form->render("name", array("class"=>"txt_long {$is_error}")) ?>
 						</div>
+						<div class="row hor">
+							<label>Code</label>
+							<?= $form->render("code", array("readonly"=>true, "class"=>"txt_long")) ?>
+						</div>
+						<div class="row hor">
+							<label>Liên kết</label>
+							<?php $is_error = isset($error) && in_array("link", $error) ? "error":"" ?>
+							<?= $form->render("link", array("class"=>"txt_long {$is_error}")) ?>
+						</div>
 						<div class="row hor half">
-							<label>Menu</label>
-							<?= $form->render("menu_id", array("class"=>"long")) ?>
+							<label>Menu cha</label>							
+							<?= $form->render("parents", array("class"=>"medium listbox", "size"=>9, 'multiple'=>true)); ?>
+						</div>
+						<div class="row hor half">
+							<label>Thuộc menu</label>
+							<?= $form->render("menu_id", array("class"=>"medium")) ?>
 						</div>
 						<div class="row hor half">
 							<label>Kích hoạt</label>
-							<?= $form->render("status", array("class"=>"long")) ?>
+							<?= $form->render("status", array("class"=>"medium")); ?>
 						</div>
 						<div class="row hor half">
-							<label>Thuộc menu item</label>
-							<?= $form->render("parents", array("class"=>"medium listbox", "size"=>10)); ?>
-						</div>
-						<div class="row hor half">
-							<label>Loại</label>
-							<?php $is_error = isset($error) && in_array("type", $error) ? "error":"" ?>
-							<?= $form->render("type", array("class"=>"long {$is_error}")) ?>
+							<label>Cửa sổ mới</label>
+							<?= $form->render("target", array("class"=>"medium")); ?>
 						</div>
 						<div class="row hor half">
 							<label>Hình ảnh</label>
-							<?= $form->render("image", array("class"=>"txt_long button")) ?>
+							<?= $form->render("image", array("class"=>"txt_medium button")); ?>
 							<span class="input-group-btn">
-								<button type="button" class="btn btn-default fileBrowse" data-target="image"><i class="fa fa-folder-open"></i> Browse</button>
-							</span>
+		                    	<button type="button" class="btn btn-default fileBrowse" data-target="image"><i class="fa fa-folder-open"></i> Browse</button>
+		                    </span>
 						</div>
 						<div class="row hor half">
 							<label>Thứ tự</label>
-							<?= $form->render("position", array("class"=>"long")) ?>
-						</div>
-					</fieldset>
-
-					<fieldset class="tab-content config">
-						<div class="row hor half">
-							<label>Kiểu mở trang</label>
-							<?= $form->render("target", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Ngôn ngữ</label>
-							<?= $form->render("language", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Thuộc kênh thông tin</label>
-							<?= $form->render("params[category][]", array('multiple'=>'multiple',"class"=>"medium listbox", "size"=>10)); ?>
-						</div>
-						<div class="row hor half">
-							<label>Bài viết</label>
-							<?= $form->render("params[articleID]", array("class"=>"txt_long", "rows"=>12, 'style'=>'width:94%')) ?>
-						</div>
-						<div class="row hor half">
-							<label>Dạng hiển thị</label>
-							<?= $form->render("params[show]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Số phần tử</label>
-							<?= $form->render("params[items]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị ảnh</label>
-							<?= $form->render("params[show_image]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Liên kết ảnh</label>
-							<?= $form->render("params[link_image]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị tiêu đề</label>
-							<?= $form->render("params[show_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Liên kết tiêu đề</label>
-							<?= $form->render("params[link_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Số ký tự tiêu đề</label>
-							<?= $form->render("params[number_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị tóm tắt</label>
-							<?= $form->render("params[show_description]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Liên kết tóm tắt</label>
-							<?= $form->render("params[link_description]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Số ký tự tóm tắt</label>
-							<?= $form->render("params[number_description]", array("class"=>"txt_long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị ngày đăng</label>
-							<?= $form->render("params[show_published]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị lượt xem</label>
-							<?= $form->render("params[show_hits]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Phân trang</label>
-							<?= $form->render("params[show_paginator]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Kiểu phân trang</label>
-							<?= $form->render("params[style_paginator]", array("class"=>"long")) ?>
+							<?= $form->render("position", array("class"=>"txt_medium")); ?>
 						</div>
 					</fieldset>
 				</div>

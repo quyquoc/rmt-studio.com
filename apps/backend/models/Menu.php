@@ -20,6 +20,12 @@ class Menu extends Model {
 
     /**
      *
+     * @var string
+     */
+    public $code;
+
+    /**
+     *
      * @var integer
      */
     public $status;
@@ -41,6 +47,7 @@ class Menu extends Model {
         return array(
             'id'        =>  'id', 
             'name'      =>  'name', 
+            'code'      =>  'code', 
             'status'    =>  'status', 
             'position'  =>  'position', 
             'created'   =>  'created'

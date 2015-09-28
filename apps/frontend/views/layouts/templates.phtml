@@ -10,16 +10,26 @@
 	</script>
 
 	<!-- BEGIN: HEADER -->
-	<div id="header">
+	<div id="header" class="transparent">
 		<div class="wrapper">
 			<div class="logo">
-				<a href="<?php echo $this->url->get();?>"><img src="<?php echo PUBLIC_URL.'frontend/images/logo.png';?>" /></a>
+				<a href="<?php echo $this->url->get();?>"><img src="<?php echo PUBLIC_URL.'frontend/images/logo_w.png';?>" /></a>
 			</div>
 			<div id="menu">
 				<div class="menu-navigation">
-					<div class="moduletable">
+					<div class="module">
 						<div class="modulecontent">
-							<?php $this->menu->show(1); ?>
+							<div class="menu-navigation">
+								<?php if(isset($menu) && !empty($menu)):?>
+									<ul class="menu">
+										<?php foreach ($menu as $key => $value):?>
+											<li class="li_<?= $value->id;?> transparent">
+												<a href="<?= ROOT_URL.$value->link;?>"><?= $value->name;?></a>
+											</li>
+										<?php endforeach;?>
+									</ul>
+								<?php endif;?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -63,6 +73,19 @@
 		</div>
 	</div>
 	<!-- END: FOOTER -->
+
+	<script type="text/javascript">
+		$(window).scroll(function(){
+            if ($(window).scrollTop() > 10) {
+				$("#header").removeClass('transparent');
+				$("ul.menu a").removeClass('transparent');
+            }
+            else {
+				$("#header").addClass('transparent');
+				$("ul.menu a").addClass('transparent');
+            }
+	    });
+	</script>
 
 	<script>
 		(function(d, s, id) {

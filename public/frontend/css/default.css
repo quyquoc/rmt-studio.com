@@ -8,12 +8,6 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 
-body {
-	font-family: 'Lato', Calibri, Arial, sans-serif;
-	color: #6b7381;
-	background: #f2f2f2;
-}
-
 a {
 	color: #aaa;
 	text-decoration: none;
@@ -25,6 +19,9 @@ a:active {
 }
 
 /* Header Style */
+.container{
+	padding: 0 0 0 14px;
+}
 .container > header {
 	margin: 0 auto;
 	padding: 2em;

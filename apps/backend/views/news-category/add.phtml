@@ -8,7 +8,6 @@
 			<div class="module_content">
 				<ul class="tab-row">
 					<li>Thông tin chính</li>
-					<li>Cấu hình</li>
 				</ul>
 				<div class="tab-group">
 					<fieldset class="tab-content main">
@@ -39,61 +38,6 @@
 						<div class="row hor">
 							<label>Mô tả</label>
 							<?= $form->render("description", array("class"=>"txt_long", 'rows'=>'10')) ?>
-						</div>
-					</fieldset>
-
-					<fieldset class="tab-content config">
-						<div class="row hor half">
-							<label>Loại hiển thị</label>
-							<?= $form->render("params[type]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Dạng hiển thị</label>
-							<?= $form->render("params[show]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Số phần tử</label>
-							<?= $form->render("params[items]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị ảnh</label>
-							<?= $form->render("params[show_image]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Liên kết ảnh</label>
-							<?= $form->render("params[link_image]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị tiêu đề</label>
-							<?= $form->render("params[show_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Liên kết tiêu đề</label>
-							<?= $form->render("params[link_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Số ký tự tiêu đề</label>
-							<?= $form->render("params[number_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị tóm tắt</label>
-							<?= $form->render("params[show_description]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Liên kết tóm tắt</label>
-							<?= $form->render("params[link_description]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Số ký tự tóm tắt</label>
-							<?= $form->render("params[number_description]", array("class"=>"txt_long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị ngày đăng tải</label>
-							<?= $form->render("params[show_published]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị lượt xem</label>
-							<?= $form->render("params[show_hits]", array("class"=>"long")) ?>
 						</div>
 					</fieldset>
 				</div>

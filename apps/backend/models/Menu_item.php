@@ -28,25 +28,25 @@ class Menu_item extends Model {
      *
      * @var string
      */
-    public $image;
+    public $link;
 
     /**
      *
      * @var string
      */
-    public $type;
+    public $image;
 
     /**
      *
      * @var integer
      */
     public $target;
-    
+
     /**
      *
      * @var string
      */
-    public $params;
+    public $posi;
 
     /**
      *
@@ -86,9 +86,10 @@ class Menu_item extends Model {
             'id'        =>  'id', 
             'name'      =>  'name', 
             'code'      =>  'code',
+            'link'      =>  'link',
             'image'     =>  'image',
-            'type'      =>  'type',
             'target'    =>  'target',
+            'posi'      =>  'posi',
             'params'    =>  'params',
             'parents'   =>  'parents',
             'menu_id'   =>  'menu_id',

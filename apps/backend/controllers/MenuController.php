@@ -16,7 +16,6 @@ class MenuController extends ControllerBase {
         $this->view->name_confirm = "menu";
         $options = array(
             "search"    =>  "name",
-            //"foreign"   =>  array("Menu_item", "menu_id", "name"),
             "order"     =>  "name asc",
         );
         $this->getDataTable($options);
@@ -26,9 +25,11 @@ class MenuController extends ControllerBase {
     public function addAction(){
     	$this->tag->setTitle('Quản lý menu: Thêm mới');
         $this->view->title_action = 'Thêm mới';
+        
     	$this->view->form = $this->getForm();
     	if ($this->request->isPost() == true) {
-    		$this->save($_POST);
+            $_POST['code'] = $this->plugin->alias_name($_POST['name']);
+            $this->save($_POST);
     	}
     }
 

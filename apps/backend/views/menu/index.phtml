@@ -39,7 +39,7 @@
 							<tr> 
 								<td><?= $stt++ ?></td> 
 								<td><input type="checkbox" id="cb1_<?= ++$key ?>" name="checkbox[]" class="cbgroup1" value="<?= $value->id ?>"></td> 
-								<td style="text-align:left;"><?= $this->tag->linkTo(array("admin/menu-item/show/{$value->id}","{$value->name}"))?></td> 
+								<td style="text-align:left;"><?= $this->tag->linkTo(array("admin/menu-item/index/{$value->id}","{$value->name}"))?></td> 
 								<td><?= $this->tag->linkTo(array("{$uri}edit/{$value->id}","",'class'=>'icn icn_edit'))?></td>
 								<td><?= $this->tag->linkTo(array("{$uri}status/{$value->id}","",'class'=>"icn {$plugin->getStatusDetail($value->status)}"))?></td> 
 								<td><a ref="<?= $value->id ?>" link="<?= $this->url->get()."{$uri}delete/" ?>" title="<?= $name_confirm." <b>".$value->name."</b>" ?>" class="icn icn_delete"></a></td> 

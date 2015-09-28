@@ -19,8 +19,9 @@ class Menu extends Form {
 		)));
         $this->add($name);
         
-		$this->add(new Select('status', array('0'=>'Không', '1'=>'Có'), array('class'=>'medium')));
-		$this->add(new Text("position", array('class'=>'txt_medium')));
+		$this->add(new Text("code"));
+		$this->add(new Select('status', array('0'=>'Không', '1'=>'Có')));
+		$this->add(new Text("position"));
 	}
 	
 }

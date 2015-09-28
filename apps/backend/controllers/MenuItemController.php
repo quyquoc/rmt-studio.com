@@ -9,49 +9,35 @@ class MenuItemController extends ControllerBase{
         $this->view->breadcrumb_cat = 'Menu Item';
 	}
 
-    public function indexAction(){
+    public function indexAction($menu_id = null){
 
         $this->tag->setTitle("Kênh menu");
-        $this->view->name_confirm = "menu";
-        $this->getDataCategory(); 
+        $this->view->name_confirm   = "menu";
+        $this->view->menu_id        = $menu_id;
+        $this->getMenuItem($menu_id);
+        // $this->getDataCategory();
     }
 
     public function addAction($menu_id = null){
-        $this->setModel("Menu_type");
-        $this->view->setTemplateAfter('tpl_popup');
-        $list_item = $this->find(
-            array(
-                // "conditions" => "parents = :parents:",
-                // "bind"=> array("parents"=>$value->id),
-                'order' => 'name ASC',
-            )
-        );
-        $this->view->list_item  = $list_item;
-        $this->view->menu_id    = $menu_id;
 
-        // $this->assets->addJs('library/ckfinder/ckfinder.js')
-        //              ->addJs('backend/js/install_filebrowse.js');
-        // $this->tag->setTitle('Kênh thông tin: Thêm mới');
-        // $this->view->title_action = 'Thêm mới';
-        // $this->view->form = $this->getForm();
-        // if ($this->request->isPost() == true) {
+        $this->assets->addJs('backend/js/init_tab.js');
+        $this->assets->addJs('library/ckfinder/ckfinder.js')
+                     ->addJs('backend/js/install_filebrowse.js');
+        $this->tag->setTitle('Menu: Thêm mới');
+        $this->view->title_action = 'Thêm mới';
 
-        //     // thong tin cau hinh
-        //     foreach ($_POST['params'] as $key => $value) {
-        //         if($key == 'category'){
-        //             $id = implode(',',$_POST['params']['category']);
-        //             $value = $id;
-        //         }
-        //         $params .= $key.'='.$value.';';
-        //     }
+        $form = new \Modules\Backend\Forms\Menu_item(null, $menu_id);
+        $this->view->form = $form;
+        if ($this->request->isPost() == true) {
 
-        //     $system = new \Modules\library\System();
-        //     $code = $_POST['name'];
-        //     $system->getCode($code,"Menu_item");
+            $_POST['code'] = $this->plugin->alias_name($_POST['name']);
+            $this->save($_POST, null, null, false);
 
-        //     $add = array('params' => $params,'code'=>$code);
-        //     $this->save($_POST, null, $add);
-        // }
+            //xu ly rieng vi phai hien thi menu item theo menu
+            $this->redirect(array("action"=>"index/".$menu_id));
+        }
+
+        $this->view->menu_id = $menu_id;
     }
 
     public function editAction($id){
@@ -60,27 +46,17 @@ class MenuItemController extends ControllerBase{
                      ->addJs('backend/js/install_filebrowse.js')
                      ->addJs('backend/js/init.js')
                      ->addJs('library/fancybox/jquery.fancybox.js');
-        $this->tag->setTitle("Kênh menu: Chỉnh sửa");
+        $this->tag->setTitle("Menu: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
         $model = $this->findFirstById($id);
         
         $this->view->form = $this->getForm($model);
         if ($this->request->isPost() == true) {
-            // thong tin cau hinh
-            foreach ($_POST['params'] as $key => $value) {
-                if($key == 'category'){
-                    $var = implode(',',$_POST['params']['category']);
-                    $value = $var;
-                }
-                $params .= $key.'='.$value.';';
-            }
 
-            $system = new \Modules\library\System();
-            $code = $_POST['name'];
-            $system->getCode($code,"Menu_item",$id);
-
-            $add = array('params' => $params);
-            $this->save($_POST,$model,$add);
+            $update = array(
+                'updated'   =>  date('Y-m-d H:i:s'),
+            );
+            $this->save($_POST, $model,$update);
         }
     }
     

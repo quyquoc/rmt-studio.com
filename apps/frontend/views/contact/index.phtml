@@ -1,0 +1,78 @@
+<script type="text/javascript" src="http://vip.gosu.vn/js/validate/jquery.validate.js"></script>
+<div class="contact">
+	<div class="module">
+		<div class="moduletitle"><h3>Contact</h3></div>
+		<div class="modulecontent">
+			<div class="infomation">
+				<h1>Contact</h1><br />
+				Hi there!<br /><br />If you have a specific project you would like to discuss, use the information below to reach us, or drop us a line using the contact form.
+				<div class="info">
+					<!-- <span>Address:</span>K36A/8 Chau Thuong Van St, Danang City, Vietnam<br />-->
+					<span>Phone:</span>(84) 973819558<br />
+					<span>Email:</span>rmtarch@gmail.com<br />
+					<span>Skype:</span>chauduyhoat
+					<script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+					<div id="SkypeButton_Call_chauduyhoat_1">
+						<script type="text/javascript">
+							Skype.ui({
+								"name": "dropdown",
+								"element": "SkypeButton_Call_chauduyhoat_1",
+								"participants": ["chauduyhoat"],
+								"imageSize": 23
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="contact-form">
+				<form name="appForm" id="appForm" method="post" action="" enctype="multipart/form-data">
+					<div class="row">
+						<?php $this->flashSession->output() ?>
+						<div class="form-msg" style="display: none"></div>
+						<?= $this->tag->textField(array('fullName', 'placeholder'=>'Full name'));?>
+					</div>
+					<div class="row"><?= $this->tag->textField(array('fromEmail', 'placeholder'=>'Email'));?></div>
+					<div class="row"><?= $this->tag->textField(array('title', 'placeholder'=>'Title'));?></div>
+					<div class="row"><?= $this->tag->textArea(array('content', 'placeholder'=>'Content', 'rows'=>10, 'cols'=>40));?></div>
+					<div class="row_extra">
+						<div class="row_file"><input type="file" name="file" id="file" /></div>
+						<div class="row_button"><?= $this->tag->submitButton(array('submit', 'name'=>'submit', 'value'=>'Send', 'id'=>'submit', 'class'=>'button')); ?></div>
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+			<div class="gmap">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.40494534701!2d108.22043769999999!3d16.044462800000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219c3d39a3311%3A0x2d1b10530b543c07!2zQ2jDonUgVGjGsOG7o25nIFbEg24sIEjhuqNpIENow6J1LCDEkMOgIE7hurVuZywgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1426177099914" width="600" height="280" frameborder="0" style="border:0"></iframe>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+
+        jQuery('#appForm').validate({
+            errorLabelContainer: jQuery(".form-msg"),
+            rules: {
+                // fullName: "required",
+                fromEmail: {
+                	required: true
+                	// email: true
+                }
+                // title: "required",
+                // content: "required"
+            },
+            messages: {
+                // fullName: "Bạn chưa nhập vào Họ và tên" + "<br/>",
+                fromEmail: {
+                	required: "Bạn chưa nhập vào email <br/>"
+                	// email: "Địa chỉ email không hợp lệ <br />"
+            	}
+                // title : "Bạn chưa chọn ngày tháng năm sinh" + "<br/>",
+                // content : "Bạn chưa nhập vào địa chỉ" + "<br/>"
+            }
+        });
+		jQuery('.successMessage').delay(7000).slideUp();
+	})
+
+</script>

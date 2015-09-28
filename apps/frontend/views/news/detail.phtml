@@ -1,9 +1,16 @@
-
-<div class="news-detail">
-	<?php if($news): ?>
-		<h1 class="title"><?php echo $news->title;?></h1>
-		<div class="content">
-			<?php echo $news->content; ?>
+<div class="news news-detail">
+	<div class="module">
+		<div class="moduletitle">
+			<h3><?php echo $item->news_category->title; ?></h3>
 		</div>
-	<?php endif; ?>
+		
+		<div class="modulecontent">
+			<div class="item">
+				<div class="title"><h1><?= $item->title; ?></h1></div>						
+				<div class="description"><?= $item->description; ?></div>
+				<div class="content"><?= $item->content ?></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
 </div>

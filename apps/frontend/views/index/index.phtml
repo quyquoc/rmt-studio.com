@@ -1,10 +1,46 @@
 
-		<div class="container">
-			<?php if($list_item): ?>
-				<ul class="grid effect-1" id="grid">
-					<?php foreach ($list_item as $key => $value): ?>
-						<li><a href=""><img src="<?php echo PUBLIC_URL.$value->image;?>"></a></li>
-					<?php endforeach;?>
-				</ul>
-			<?php endif;?>
+
+
+
+<div id="header1">
+	<!-- jQuery handles to place the header background images -->
+	<div id="headerimgs">
+		<div id="headerimg1" class="headerimg"></div>
+		<div id="headerimg2" class="headerimg"></div>
+	</div>
+	<!-- Top navigation on top of the images -->
+	<div id="nav-outer">
+		<div id="navigation">
+			<div id="menu">
+				<?php if(isset($menu) && !empty($menu)):?>
+					<ul class="menu">
+						<?php foreach ($menu as $key => $value):?>
+							<li class="li_<?= $value->id;?> transparent">
+								<a href="<?= ROOT_URL.$value->link;?>"><?= $value->name;?></a>
+							</li>
+						<?php endforeach;?>
+					</ul>
+				<?php endif;?>
+			</div>
 		</div>
+	</div>
+	<!-- Slideshow controls -->
+	<div id="headernav-outer">
+		<div id="headernav">
+			<div id="back" class="btn"></div>
+			<div id="control" class="btn"></div>
+			<div id="next" class="btn"></div>
+		</div>
+	</div>
+	<!-- jQuery handles for the text displayed on top of the images -->
+	<div id="headertxt">
+		<p class="caption">
+			<span id="firstline"></span>
+			<a href="#" id="secondline"></a>
+		</p>
+		<p class="pictured">
+			Pictured:
+			<a href="#" id="pictureduri"></a>
+		</p>
+	</div>
+</div>
