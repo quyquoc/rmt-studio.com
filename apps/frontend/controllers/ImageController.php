@@ -12,8 +12,6 @@ class ImageController extends ControllerBase{
 
 	public function indexAction($group_code = null, $album_code = null, $code = null){
 
-		require_once APPS_PATH . 'frontend/includes/menu.php';
-
 		$this->setModel("Image_album");
 		$conditions = "group_id = :group_id: AND status = 1";
 		$list_item	= $this->find(array(

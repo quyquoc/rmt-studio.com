@@ -25,11 +25,6 @@
 		'action' 		=> 2,
 		'params'		=> 3,
 	));
-	$router->add('/trang-chu', array(
-		'module' 		=> 'frontend',
-		'controller' 	=> 'index',
-		'action' 		=> 'index',
-	));
 	$router->add('/home', array(
 		'module' 		=> 'frontend',
 		'controller' 	=> 'index',

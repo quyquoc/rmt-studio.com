@@ -119,7 +119,7 @@ img{
     -ms-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
     transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
     &.transparent{
-    	background: transparent;
+    	background: #000;
     }
 	.logo{
 		float: left;
@@ -319,6 +319,9 @@ img{
 ** News
 **------------------------------------------------*/
 .news{
+	.moduletitle{
+		display: none;
+	}
 	.item{
 		float: left;
 		width: 100%;
@@ -642,4 +645,10 @@ img{
 }
 .fancybox-prev span:hover{
     background: transparent url(../images/prev_hover.png) left top !important;
+}
+#fancybox-thumbs ul li{
+	margin: 5px !important;
+}
+#fancybox-thumbs ul li.active{
+	margin: 5px !important;
 }

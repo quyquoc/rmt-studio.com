@@ -15,8 +15,6 @@ class IndexController extends ControllerBase
         $this->assets->addCss('frontend/css/style1.css');
         $this->assets->addJs('frontend/js/script.js');
 
-		require_once APPS_PATH . 'frontend/includes/menu.php';
-
 		$this->setModel("Image_album");
 		$conditions = "group_id = :group_id: AND status = 1";
 		$list_item	= $this->find(array(

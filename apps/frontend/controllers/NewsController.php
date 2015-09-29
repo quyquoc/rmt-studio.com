@@ -12,8 +12,6 @@ class NewsController extends ControllerBase{
 
 	public function indexAction($category_code = null, $code = null){
 
-		require_once APPS_PATH . 'frontend/includes/menu.php';
-
 		$tbl_article	= new \Modules\Frontend\Models\News_article();
 
 		if(isset($code) && !empty($code)){// hien thi chi tiet

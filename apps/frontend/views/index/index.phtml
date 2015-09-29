@@ -12,15 +12,7 @@
 	<div id="nav-outer">
 		<div id="navigation">
 			<div id="menu">
-				<?php if(isset($menu) && !empty($menu)):?>
-					<ul class="menu">
-						<?php foreach ($menu as $key => $value):?>
-							<li class="li_<?= $value->id;?> transparent">
-								<a href="<?= ROOT_URL.$value->link;?>"><?= $value->name;?></a>
-							</li>
-						<?php endforeach;?>
-					</ul>
-				<?php endif;?>
+				<?php $this->menu->show('menu-top');?>
 			</div>
 		</div>
 	</div>
