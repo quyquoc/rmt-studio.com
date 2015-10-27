@@ -12,9 +12,6 @@ class ContactController extends ControllerBase
 
 	public function indexAction(){
 
-		require_once APPS_PATH . 'frontend/includes/menu.php';
-
-
     	if ($this->request->isPost() == true) {
 	    		
 			require_once PUBLIC_PATH . 'library/swiftmailer/lib/swift_required.php';
