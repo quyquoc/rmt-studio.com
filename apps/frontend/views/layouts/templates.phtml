@@ -20,15 +20,7 @@
 					<div class="module">
 						<div class="modulecontent">
 							<div class="menu-navigation">
-								<?php if(isset($menu) && !empty($menu)):?>
-									<ul class="menu">
-										<?php foreach ($menu as $key => $value):?>
-											<li class="li_<?= $value->id;?> transparent">
-												<a href="<?= ROOT_URL.$value->link;?>"><?= $value->name;?></a>
-											</li>
-										<?php endforeach;?>
-									</ul>
-								<?php endif;?>
+								<?php $this->menu->show('menu-top');?>
 							</div>
 						</div>
 					</div>
@@ -75,16 +67,15 @@
 	<!-- END: FOOTER -->
 
 	<script type="text/javascript">
-		$(window).scroll(function(){
-            if ($(window).scrollTop() > 10) {
-				$("#header").removeClass('transparent');
-				$("ul.menu a").removeClass('transparent');
-            }
-            else {
-				$("#header").addClass('transparent');
-				$("ul.menu a").addClass('transparent');
-            }
-	    });
+		// $(window).scroll(function(){
+		// 	if ($(window).scrollTop() > 10) {
+		// 		$("#header").removeClass('transparent');
+		// 		$("ul.menu a").removeClass('transparent');
+		// 	}else {
+		// 		$("#header").addClass('transparent');
+		// 		$("ul.menu a").addClass('transparent');
+		// 	}
+		// });
 	</script>
 
 	<script>

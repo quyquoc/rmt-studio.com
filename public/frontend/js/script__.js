@@ -117,9 +117,9 @@ $(document).ready(function() {
 		// Set the background image of the new active container
 		$("#headerimg" + activeContainer).css({
 			"background-image" : "url(frontend/images/" + photoObject.image + ")",
-			// "display" : "block",
+			"display" : "block",
 			"z-index" : currentZindex
-		}).fadeIn(3000);
+		});
 		
 		// Hide the header text
 		$("#headertxt").css({"display" : "none"});
