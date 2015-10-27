@@ -12,14 +12,14 @@ define('ELEMENT_PATH', APPS_PATH.'frontend/elements/');
 
 //-------------------- KHAI BAO DUONG DAN URL DEN CAC THU MUC ---------------------
 //Duong dan den thu muc ung dung
-define('ROOT_URL', '/rmt-studio.com/');
+define('ROOT_URL', '/phalcon/rmt-studio.com');
 //Duong dan den thu muc apps/
-define('APPS_URL', ROOT_URL.'apps/');
+define('APPS_URL', ROOT_URL.'/apps');
 //Duong dan den thu muc public/
-define('PUBLIC_URL', ROOT_URL.'public/');
+define('PUBLIC_URL', ROOT_URL.'/public');
 
 // Thư mục update file backend
-define('UPLOAD_DIR', ROOT_URL.'public/backend/files/'); 
+define('UPLOAD_DIR', PUBLIC_URL.'/public/backend/files/'); 
 
 
 // Thư mực upload

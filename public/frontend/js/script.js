@@ -136,7 +136,7 @@ $(document).ready(function() {
 		
 		// Fade out the current container
 		// and display the header text when animation is complete
-		$("#headerimg" + currentContainer).fadeOut(function() {
+		$("#headerimg" + currentContainer).fadeOut(3000, function() {
 			setTimeout(function() {
 				$("#headertxt").css({"display" : "none"});
 				animating = false;

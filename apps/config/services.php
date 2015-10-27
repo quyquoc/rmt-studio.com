@@ -41,7 +41,7 @@
 	 */
 	$di->set('url', function() {
 		$url = new \Phalcon\Mvc\Url();
-		$url->setBaseUri(ROOT_URL);
+		$url->setBaseUri(ROOT_URL.'/');
 		return $url;
 	});
 
