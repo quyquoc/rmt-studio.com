@@ -18,9 +18,9 @@
 			<ul class="grid effect-1" id="grid">
 				<?php foreach ($list_item as $key => $value): ?>
 					<li class="work-item">
-						<a class="fancybox" rel="gallery<?php echo $value->id;?>" href="<?php echo PUBLIC_URL.$value->image;?>">
+						<a class="fancybox" rel="gallery<?php echo $value->id;?>" href="<?php echo PUBLIC_URL.'/'.$value->image;?>">
 							<div class="work-img">
-								<img class="work-img" src="<?php echo PUBLIC_URL.$value->image;?>">
+								<img class="work-img" src="<?php echo PUBLIC_URL.'/'.$value->image;?>">
 							</div>
 							<div class="work-intro">
                                 <h3 class="work-title"><?php echo $value->title;?></h3>
@@ -31,7 +31,7 @@
 							<div class="hidden">
 								<?php $arr_img = explode(',', $value->attr_image);?>
 								<?php foreach ($arr_img as $key_1 => $value_1): ?>
-									<a class="fancybox" rel="gallery<?php echo $value->id;?>" href="<?php echo $value_1;?>"><img src="<?php echo $value_1;?>"></a>
+									<a class="fancybox" rel="gallery<?php echo $value->id;?>" href="<?php echo PUBLIC_URL.'/'.$value_1;?>"><img src="<?php echo PUBLIC_URL.'/'.$value_1;?>"></a>
 								<?php endforeach;?>
 							</div>
 						<?php endif;?>

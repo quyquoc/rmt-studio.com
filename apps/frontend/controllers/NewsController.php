@@ -20,7 +20,12 @@ class NewsController extends ControllerBase{
 			$item 		= $tbl_article->findFirst(array(
 				'conditions'	=> $conditions,
 				'bind'			=> array('code'=>$code),
-			));				
+			));
+			
+			if(!$item){	
+				$this->response->redirect('news');
+			}
+
 			$this->view->item 	= $item;
 			$this->view->pick("news/detail");			
 		}else{ // hien thi danh sach

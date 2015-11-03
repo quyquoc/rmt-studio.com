@@ -3,8 +3,8 @@
 return new \Phalcon\Config(array(
 	'database' => array(
 		'adapter'	=> 'Mysql',
-		// 'host'		=> 'localhost',
-		'host'		=> '103.7.40.122',
+		'host'		=> 'localhost',
+		// 'host'		=> '103.7.40.122',
 		'username'	=> 'admin_root',
 		'password'	=> 'c0nand0yle',
 		'name'		=> 'admin_rmtstudio',
@@ -20,6 +20,6 @@ return new \Phalcon\Config(array(
 				'username'	=> 'npqquoc@gmail.com',
 				'password'	=> 'd0raem0n',
 		),
-		'to_email'	=> 'luatnamthanh@gmail.com'
+		'to_email'	=> 'rmtarch@gmail.com'
 	),
 ));
