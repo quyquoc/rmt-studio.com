@@ -22,4 +22,5 @@ return new \Phalcon\Config(array(
 		),
 		'to_email'	=> 'rmtarch@gmail.com'
 	),
+	'website' => 'http://rmt-studio.com'
 ));
