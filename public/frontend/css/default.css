@@ -20,7 +20,8 @@ a:active {
 
 /* Header Style */
 .container{
-	padding: 0 0 0 14px;
+	/*padding: 0 0 0 14px;*/
+	padding: 0;
 }
 .container > header {
 	margin: 0 auto;

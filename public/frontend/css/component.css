@@ -8,8 +8,8 @@
 .grid li {
 	display: block;
 	float: left;
-	padding: 2px;
-	width: 33%;
+	padding: 1px;
+	width: 33.2%;
 	opacity: 0;
 }
 
