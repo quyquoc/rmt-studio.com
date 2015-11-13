@@ -12,7 +12,7 @@ define('ELEMENT_PATH', APPS_PATH.'frontend/elements/');
 
 //-------------------- KHAI BAO DUONG DAN URL DEN CAC THU MUC ---------------------
 //Duong dan den thu muc ung dung
-define('ROOT_URL', '');
+define('ROOT_URL', '/rmt-studio.com');
 //Duong dan den thu muc apps/
 define('APPS_URL', ROOT_URL.'/apps');
 //Duong dan den thu muc public/
