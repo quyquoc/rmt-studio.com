@@ -19,7 +19,7 @@ define('APPS_URL', ROOT_URL.'/apps');
 define('PUBLIC_URL', ROOT_URL.'/public');
 
 // Thư mục update file backend
-define('UPLOAD_DIR', PUBLIC_URL.'/public/backend/files/'); 
+define('UPLOAD_DIR', PUBLIC_URL.'/backend/files/'); 
 
 
 // Thư mực upload
