@@ -12,8 +12,8 @@ class IndexController extends ControllerBase
 
 	public function indexAction(){
 
-        $this->assets->addCss('frontend/css/style1.css');
-        $this->assets->addJs('frontend/js/script.js');
+        // $this->assets->addCss('frontend/css/style1.css');
+        // $this->assets->addJs('frontend/js/script.js');
 
 		$this->setModel("Image_album");
 		$conditions = "group_id = :group_id: AND status = 1";
