@@ -9,7 +9,7 @@ class Menu extends Component{
 		$menu = new \Modules\Frontend\Models\Menu;
 		$menu = $menu::findFirstByCode($id);
 
-		require (ELEMENT_PATH.'menu/show.php');
+		require (ELEMENTS_PATH.'menu/show.php');
 	}
 
 	public function menu($menu_id, $parent, $level){

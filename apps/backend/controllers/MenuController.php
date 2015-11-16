@@ -31,13 +31,13 @@ class MenuController extends ControllerBase {
 
     	if ($this->request->isPost() == true) {
 
-            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
-
-            $code = $_POST['title'];
+            $code = $_POST['name'];
             $this->plugin->create_code($code, "Menu");
 
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
             $add = array(
-                'code'  =>  $code,
+                'code'      =>  $code
             );
 
             $this->save($_POST, null, $add);
@@ -49,16 +49,16 @@ class MenuController extends ControllerBase {
     	$this->tag->setTitle("Quản lý menu: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
 
-    	$model = $this->findFirstById($id);
+    	$model = $this->findFirstById($id);        
     	$this->view->form = $this->getForm($model);
 
     	if ($this->request->isPost() == true) {
 
-            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
-
             $this->plugin->create_code($_POST['code'], "Menu", $id);
 
-    		$this->save($_POST,$model);
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
+            $this->save($_POST, $model);
     	}
     }
 

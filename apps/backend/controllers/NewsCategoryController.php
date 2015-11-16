@@ -18,16 +18,24 @@ class NewsCategoryController extends ControllerBase{
     }
 
     public function addAction(){
+
         $this->assets->addJs('backend/js/init_tab.js');
         $this->tag->setTitle('Kênh thông tin: Thêm mới');
         $this->view->title_action = 'Thêm mới';
 
         $this->view->form = $this->getForm();
+
         if ($this->request->isPost() == true) {
-            
+
+            $code = $_POST['title'];
+            $this->plugin->create_code($code, "News_category");
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
             $add = array(
-                'code'      => $this->plugin->alias_name($_POST['title'])
+                'code'      => $code
             );
+
             $this->save($_POST, null, $add);
         }
     }
@@ -36,16 +44,21 @@ class NewsCategoryController extends ControllerBase{
         $this->assets->addJs('backend/js/init_tab.js');
         $this->tag->setTitle("Kênh thông tin: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
-        $model = $this->findFirstById($id);
-        
+
+        $model = $this->findFirstById($id);        
         $this->view->form = $this->getForm($model);
+
         if ($this->request->isPost() == true) {
 
+            $this->plugin->create_code($_POST['code'], "News_category", $id);
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
             $update = array(
-                    'updated'   =>  date('Y-m-d H:i:s'),
+                'updated'   =>  date('Y-m-d H:i:s'),
             );
 
-            $this->save($_POST, $model,$update);
+            $this->save($_POST, $model, $update);
         }
     }
     

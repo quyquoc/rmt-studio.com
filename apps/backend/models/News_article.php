@@ -39,7 +39,7 @@ class News_article extends Model {
     /**
      *  @var integer
      */
-    public $feature;
+    public $featured;
 
     /**
      *
@@ -144,7 +144,7 @@ class News_article extends Model {
             'code'      	=>  'code', 
             'description'   =>  'description',
             'content'       =>  'content',
-            'feature'       =>  'feature',
+            'featured'       =>  'featured',
             'image'         =>  'image',
             'link'			=>  'link',
             'url_target'    =>  'url_target',

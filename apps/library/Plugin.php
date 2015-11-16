@@ -19,7 +19,7 @@ class Plugin {
     }
 
     /**
-	 *	Hàm chuyển tên tiêu đề thành dạng code
+	 *	Chuyển chuỗi thành code
 	 *	@param $name [string]
 	 *	@return $str
      */
@@ -31,23 +31,39 @@ class Plugin {
 		return str_replace('--','-',$str);
 	}
 
-	/**
-	 *	Hàm lấy ra từng giá trị của params
-	 *	@param $params [string]
-	 *	@return array
+	/** 
+	 *	Chuyển chuỗi thành code có kiểm tra trong table trường hợp trùng alias_name
+	 *	@param $str [string]
+	 *	@param $table_name [object]
+	 *	@param $id [integer]
 	 */
-	public function getItemParam($params){
-		$data = array();
-		$params_item = explode(";",$params);
-		foreach ($params_item as $key => $value) {
-			if(!empty($value)){
-				$exp = explode("=", $value);
-				$data[$exp[0]] = $exp[1];
-			}
-		}
-		return $data;
+	public function create_code(&$str, $table_name, $id = null){
+
+        $str 	= $this->alias_name($str);
+       	$model 	= "\Modules\Backend\Models\\".$table_name;
+
+       	if(isset($id) && !empty($id)){
+
+       		$conditions = "code = :code: AND id != :id:";
+       		$query = array("conditions" => $conditions, "bind" => array("code" => $str, "id" => $id));
+       	} else {
+
+       		$conditions = "code = :code:";
+       		$query = array("conditions" => $conditions, "bind" => array("code" => $str));
+       	}
+
+        $item = $model::findFirst($query);
+        
+        if(isset($item) && !empty($item)){ 
+
+        	$str = $str.'-'.rand();
+        	$this->create_code($str, $table_name, $id);
+        } else {
+
+        	return $str;
+        }
 	}
-	
+
 	/**
 	 *	Hàm trả về đường dẫn theo title
 	 *	@param $value [object]
@@ -88,7 +104,17 @@ class Plugin {
 				$menu_code = '/'.$option['menu_code'];
 			}
 			switch ($option['style_paginator']) {
-				case '0': // Binh thuong
+
+				case '1': // Xem them
+
+					$str  = '';
+					$str .= '<div class="pagination><ul class="paging">';
+					$str .= '<li class="next">'.\Phalcon\Tag::linkTo(array("{$option['controller']}{$menu_code}?page={$page->next}", 'Xem thêm','class'=>'page gradient')) .'</li>';
+					$str .= "</ul></div>";
+
+					return $str;
+
+				default: // Binh thuong
 					$total = $page->total_pages;
 					
 					$subtract = $page->current - 3;
@@ -117,15 +143,6 @@ class Plugin {
 						}
 						$str .= '<li class="next">'.\Phalcon\Tag::linkTo(array("{$option['controller']}{$menu_code}?page={$page->next}", 'Trang tiếp','class'=>'page gradient')) .'</li>';
 						$str .= '<li class="last">'.\Phalcon\Tag::linkTo(array("{$option['controller']}{$menu_code}?page={$page->last}", 'Trang cuối','class'=>'page gradient')) .'</li>';
-					$str .= "</ul></div>";
-
-					return $str;
-
-				case '1': // Xem them
-
-					$str  = '';
-					$str .= '<div class="pagination><ul class="paging">';
-					$str .= '<li class="next">'.\Phalcon\Tag::linkTo(array("{$option['controller']}{$menu_code}?page={$page->next}", 'Xem thêm','class'=>'page gradient')) .'</li>';
 					$str .= "</ul></div>";
 
 					return $str;
@@ -179,6 +196,68 @@ class Plugin {
 		    $this->getMenuItemChildren($value->id, $level+1,$column,$data);
 		}	
 	}
+	
+	/** 
+	 *	Lấy toàn bộ childCategoryID con từ 1 id cha arrCategory
+	 *	@param $name_table [string]
+	 *	@param $parents [integer]
+	 *	@param $parents [object]
+	 *	@param $option [array]
+	 */
+	public function get_child_category_id($name_table = null, $parents = null, &$data = null, $option = null){
+		
+		$table 		= "\Modules\Frontend\Models\\".$name_table;
+		$conditions = "status = 1 AND parents = :parents:";
+		$result 	= $table::find(array(
+			"conditions"	=>	$conditions,
+			"bind"			=>	array('parents'=>$parents),
+			"columns"		=> 'id',
+		));
+		// echo '<pre>';print_r($result->toArray());die;
+
+		if(count($result) > 0){
+			foreach ($result as $key => $value) {
+				$data[] = $value->id;
+				$this->get_child_category_id($name_table, $value->id, $data, $option);
+			}	
+		}
+		$data[] = $parents;	
+	}
+
+	/** 
+	 *	Lấy nội dung text và thay thế các chuỗi ký tự đặc biệt
+	 *	@param $content [string]
+	 *	@param $option [array]
+	 */
+	public function replace_string($content, $option = null){
+		if($option == null){
+			$str = str_replace('\"', '"', $content);
+			$str = str_replace("\'", "'", $str);			
+		}		
+		
+		return $str;
+	}
+
+	/**
+ 	*	CÁC HÀM KHÔNG CÒN SỬ DỤNG
+	*/
+
+		/**
+		 *	Hàm lấy ra từng giá trị của params
+		 *	@param $params [string]
+		 *	@return array
+		 */
+		public function getItemParam($params){
+			// $data = array();
+			// $params_item = explode(";",$params);
+			// foreach ($params_item as $key => $value) {
+			// 	if(!empty($value)){
+			// 		$exp = explode("=", $value);
+			// 		$data[$exp[0]] = $exp[1];
+			// 	}
+			// }
+			// return $data;
+		}
 }
 
 /* End of file Plugin.php */

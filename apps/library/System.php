@@ -131,30 +131,8 @@
 		}
 
 		/** 
-		 *	Hàm sinh mã code tương ứng với name hoặc title
-		 *	@param $code [string]
-		 *	@param $object [object]
-		 *	@param $id [integer]
+		 *	HÀM NÀY ĐƯỢC CHUYỂN QUA TẠI apps/library/plugin.php -> function create_code(&$str, $table_name, $id = null)
 		 */
-		public function getCode(&$code, $object,$id = null){
-			$plugin = new \Modules\Library\Plugin;
-            $code = $plugin->alias_name($code);
-           	$model = "\Modules\Backend\Models\\".$object;
-           	if($id != null){
-           		$conditions = "code = :code: AND id != :id:";
-           		$query = array("conditions" => $conditions,"bind" => array("code" => $code,"id" => $id));
-           	} else {
-           		$conditions = "code = :code:";
-           		$query = array("conditions" => $conditions,"bind" => array("code" => $code));
-           	}
-
-            $item = $model::findFirst($query);
-            if($item){ 
-            	$code = $code.rand();
-            	$this->getCode($code, $object);
-            } else {
-            	return $code;
-            }
-		}
+		public function getCode(&$code, $object,$id = null){}
 		
 	}

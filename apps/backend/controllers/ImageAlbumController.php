@@ -23,6 +23,7 @@ class ImageAlbumController extends ControllerBase{
     }
 
     public function addAction(){
+
         $this->assets->addJs('backend/js/init_tab.js')
                      ->addJs('backend/js/install_filebrowse_image.js');
         $this->assets->addCss('library/bootstrap/css/bootstrap-combined.min.css');
@@ -30,14 +31,14 @@ class ImageAlbumController extends ControllerBase{
         $this->tag->setTitle('Album ảnh: Thêm mới');
         $this->view->title_action = 'Thêm mới';
         $this->view->form = $this->getForm();
+
         if ($this->request->isPost() == true) {
 
-            $system = new \Modules\Library\System();
+            $code = $_POST['title'];
+            $this->plugin->create_code($code, "Image_album");
 
             $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
 
-            $code = $_POST['title'];
-            $system->getCode($code, "Image_album");
             $add = array(
                 'code'      =>  $code,
                 'attr_image'=>  str_replace(PUBLIC_URL, '', $_POST['attr_image']),
@@ -48,17 +49,18 @@ class ImageAlbumController extends ControllerBase{
     }
 
     public function editAction($id){
+
         $this->assets->addJs('backend/js/init_tab.js')
                      ->addJs('backend/js/install_filebrowse_image.js');
         $this->assets->addCss('library/bootstrap/css/bootstrap-combined.min.css');
 
         $this->tag->setTitle("Album ảnh: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
-        $model = $this->findFirstById($id);
-        
+
+        $model = $this->findFirstById($id);        
         $this->view->form = $this->getForm($model);
         
-        // load ảnh attr_image của sản phẩm
+        // load ảnh attr_image
         $arr_image =  explode(",", $model->attr_image);
         if(!empty($arr_image)){
             $list_image = array();
@@ -67,20 +69,22 @@ class ImageAlbumController extends ControllerBase{
                     $list_image[] = $value;
                 }
             }
-            $this->view->image_value = implode(",",$list_image);
+            $this->view->image_value = implode(",", $list_image);
             $this->view->list_image = $list_image;
-        } // End load thuộc tính sản phẩm;
+        } // End load ảnh attr_image
 
         if ($this->request->isPost() == true) {
 
+            $this->plugin->create_code($_POST['code'], "Image_album", $id);
+
             $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
-            
+
             $update = array(
                 'attr_image'=>  str_replace(PUBLIC_URL, '', $_POST['attr_image']),
                 'updated'   =>  date('Y-m-d H:i:s'),
             );
 
-            $this->save($_POST, $model,$update);
+            $this->save($_POST, $model, $update);
         }
     }
     

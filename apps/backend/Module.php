@@ -37,13 +37,6 @@ class Module
 			$view->setViewsDir(__DIR__ . '/views/');
 			return $view;
 		};
-		
-		/**
-		* Register a component
-		*/
-		$di->set('plugin', function(){
-			return new \Modules\Library\Plugin();
-		});
 	}
 
 }

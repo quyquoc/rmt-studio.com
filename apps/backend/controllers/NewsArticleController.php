@@ -23,36 +23,57 @@ class NewsArticleController extends ControllerBase{
     }
 
     public function addAction(){
+
         $this->assets->addJs('backend/js/init_tab.js');
         $this->tag->setTitle('Bài viết: Thêm mới');
         $this->view->title_action = 'Thêm mới';
+
         $this->view->form = $this->getForm();
+
         if ($this->request->isPost() == true) {
 
+            $code = $_POST['title'];
+            $this->plugin->create_code($code, "News_article");
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
+            $identity       = $this->session->get('auth-identity');
+
         	$add = array(
-        			'hits'		=>	'0',
-        			'created'	=>	date('Y-m-d H:i:s'),
-        			'updated'	=>	date('Y-m-d H:i:s'),
+                'code'      =>  $code,
+    			'hits'		=>	'0',
+    			'created'	=>	date('Y-m-d H:i:s'),
+    			'updated'	=>	date('Y-m-d H:i:s'),
+                'creator_id'=>  $identity['id'],
         	);
+
             $this->save($_POST, null, $add);
-        }
-           
+        }           
     }
 
     public function editAction($id){
+
         $this->assets->addJs('backend/js/init_tab.js');
         $this->tag->setTitle("Bài viết: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
-        $model = $this->findFirstById($id);
-       
+
+        $model = $this->findFirstById($id);       
         $this->view->form = $this->getForm($model);
+
         if ($this->request->isPost() == true) {
 
+            $this->plugin->create_code($_POST['code'], "News_article", $id);
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
+            $identity = $this->session->get('auth-identity');
+            
             $update = array(
-                    'updated'   =>  date('Y-m-d H:i:s'),
+                'updated'   =>  date('Y-m-d H:i:s'),
+                'editor_id' =>  $identity['id']
             );
 
-            $this->save($_POST, $model,$update);
+            $this->save($_POST, $model, $update);
         }
     }
     

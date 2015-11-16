@@ -12,6 +12,11 @@
 						<?php $is_error = isset($error) && in_array("title", $error) ? "error":"" ?>
 						<?= $form->render("title", array("class"=>"txt_long {$is_error}")) ?>
 					</div>
+					<div class="row hor">
+						<label>Code</label>
+						<?php $is_error = isset($error) && in_array("code", $error) ? "error":"" ?>
+						<?= $form->render("code", array("class"=>"txt_long {$is_error}")) ?>
+					</div>
 					<div class="row hor half">
 						<label>Kích hoạt</label>
 						<?= $form->render("status", array("class"=>"medium")); ?>

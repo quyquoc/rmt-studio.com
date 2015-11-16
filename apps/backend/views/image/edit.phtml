@@ -18,6 +18,11 @@
 							<?php $is_error = isset($error) && in_array("title", $error) ? "error":"" ?>
 							<?= $form->render("title", array("class"=>"txt_long {$is_error}")) ?>
 						</div>
+						<div class="row hor">
+							<label>Code</label>
+							<?php $is_error = isset($error) && in_array("code", $error) ? "error":"" ?>
+							<?= $form->render("code", array("class"=>"txt_long {$is_error}")) ?>
+						</div>
 						<div class="row hor half">
 							<label>Album</label>
 							<?= $form->render("album_id", array("class"=>"long listbox", 'size'=>9)) ?>
@@ -83,7 +88,7 @@
 								<?php if(isset($list_image) && !empty($list_image)): ?>
 									<?php foreach($list_image as $key => $value): ?>
 										<div class="item">
-											<img src="<?= $value ?>" /><span ref="<?= $key ?>" onClick="delete_image(this)"></span>
+											<img src="<?= PUBLIC_URL.$value ?>" /><span ref="<?= $key ?>" onClick="delete_image(this)"></span>
 										</div>
 									<?php endforeach ?>
 								<?php endif; ?>

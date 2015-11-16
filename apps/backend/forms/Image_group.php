@@ -16,6 +16,8 @@ class Image_group extends Form {
 		$title->addValidator(new PresenceOf());
 		$this->add($title);
 
+		$this->add(new Text("code"));
+
 		$status = new Select('status', array('0'=>'Không', '1'=>'Có'));
 		$status->setDefault('1');
 		$this->add($status);

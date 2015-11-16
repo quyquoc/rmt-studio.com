@@ -27,16 +27,10 @@ class MenuItemController extends ControllerBase{
         $this->view->title_action = 'Thêm mới';
 
         $form = new \Modules\Backend\Forms\Menu_item(null, $menu_id);
-        
         $this->view->form = $form;
-
         if ($this->request->isPost() == true) {
 
-            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
-
-            $this->plugin->create_code($_POST['name'], "Menu_item");
-            $_POST['code'] = $_POST['name'];
-
+            $_POST['code'] = $this->plugin->alias_name($_POST['name']);
             $this->save($_POST, null, null, false);
 
             //xu ly rieng vi phai hien thi menu item theo menu
@@ -47,7 +41,6 @@ class MenuItemController extends ControllerBase{
     }
 
     public function editAction($id){
-
         $this->assets->addCss('library/fancybox/jquery.fancybox.css');
         $this->assets->addJs('library/ckfinder/ckfinder.js')
                      ->addJs('backend/js/install_filebrowse.js')
@@ -55,21 +48,15 @@ class MenuItemController extends ControllerBase{
                      ->addJs('library/fancybox/jquery.fancybox.js');
         $this->tag->setTitle("Menu: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
-
-        $model = $this->findFirstById($id);        
+        $model = $this->findFirstById($id);
+        
         $this->view->form = $this->getForm($model);
-
         if ($this->request->isPost() == true) {
-
-            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
-
-            $this->plugin->create_code($_POST['name'], "Menu_item");
-            $_POST['code'] = $_POST['name'];
 
             $update = array(
                 'updated'   =>  date('Y-m-d H:i:s'),
             );
-            $this->save($_POST, $model, $update);
+            $this->save($_POST, $model,$update);
         }
     }
     
