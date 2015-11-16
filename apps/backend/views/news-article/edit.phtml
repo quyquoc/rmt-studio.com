@@ -18,6 +18,11 @@
 							<?php $is_error = isset($error) && in_array("title", $error) ? "error":"" ?>
 							<?= $form->render("title", array("class"=>"txt_long {$is_error}")) ?>
 						</div>
+						<div class="row hor">
+							<label>Code</label>
+							<?php $is_error = isset($error) && in_array("code", $error) ? "error":"" ?>
+							<?= $form->render("code", array("class"=>"txt_long {$is_error}")) ?>
+						</div>
 						<div class="row hor half">
 							<label>Thuộc kênh</label>
 							<?= $form->render("category_id", array("class"=>"long listbox", 'size'=>9)) ?>
@@ -28,7 +33,7 @@
 						</div>
 						<div class="row hor half">
 							<label>Nổi bật</label>
-							<?= $form->render("feature", array("class"=>"long")) ?>
+							<?= $form->render("featured", array("class"=>"long")) ?>
 						</div>
 						<div class="row hor half">
 							<label>Hình ảnh</label>

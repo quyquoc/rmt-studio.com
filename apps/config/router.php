@@ -30,6 +30,11 @@
 		'controller' 	=> 'index',
 		'action' 		=> 'index',
 	));
+	$router->add('/work', array(
+		'module' 		=> 'frontend',
+		'controller' 	=> 'image',
+		'action' 		=> 'index',
+	));
 	$router->add('/news/:params', array(
 		'module' 		=> 	'frontend',
 		'controller' 	=> 	'news',

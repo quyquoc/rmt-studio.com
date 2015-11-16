@@ -74,4 +74,11 @@
 	    ));
 	});
 
+	/**
+	 * Register a component
+	 */
+	$di->set('plugin', function(){
+		return new \Modules\Library\Plugin();
+	});
+
 	

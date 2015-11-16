@@ -42,6 +42,11 @@ class Image_group extends Model {
     public $content;
 
     /**
+     *  @var integer
+     */
+    public $featured;
+
+    /**
      *
      * @var integer
      */
@@ -59,6 +64,7 @@ class Image_group extends Model {
             'title'      	=>  'title', 
             'code'          =>  'code',
             'image'			=>  'image',
+            'featured'      =>  'featured',
             'content'       =>	'content',
             'status'    	=>  'status',
             'position'    	=>  'position', 

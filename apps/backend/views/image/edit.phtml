@@ -8,7 +8,6 @@
 			<div class="module_content">
 				<ul class="tab-row">
 					<li>Thông tin chính</li>
-					<li>Cấu hình</li>
 					<li>hình ảnh</li>
 				</ul>
 				<div class="tab-group">
@@ -17,6 +16,11 @@
 							<label>Tiêu đề</label>
 							<?php $is_error = isset($error) && in_array("title", $error) ? "error":"" ?>
 							<?= $form->render("title", array("class"=>"txt_long {$is_error}")) ?>
+						</div>
+						<div class="row hor">
+							<label>Code</label>
+							<?php $is_error = isset($error) && in_array("code", $error) ? "error":"" ?>
+							<?= $form->render("code", array("class"=>"txt_long {$is_error}")) ?>
 						</div>
 						<div class="row hor half">
 							<label>Album</label>
@@ -28,7 +32,7 @@
 						</div>
 						<div class="row hor half">
 							<label>Nổi bật</label>
-							<?= $form->render("feature", array("class"=>"long")) ?>
+							<?= $form->render("featured", array("class"=>"long")) ?>
 						</div>
 						<div class="row hor half">
 							<label>Hình ảnh</label>
@@ -43,36 +47,6 @@
 						</div>
 					</fieldset>
 
-					<fieldset class="tab-content config">
-						<div class="row hor half">
-							<label>Hiển thị tiêu đề</label>
-							<?= $form->render("params[show_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị nội dung</label>
-							<?= $form->render("params[show_content]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị ngày đăng tải</label>
-							<?= $form->render("params[show_published]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị lượt xem</label>
-							<?= $form->render("params[show_hits]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half" id="datetimepicker">
-							<label class="control-label">Ngày đăng</label>
-			                <div class='input-group date input-append' id="datetimepicker">
-								<?= $form->render('published', array("class"=>"txt_medium button")) ?>
-			                    <span class="input-group-addon add-on"><i data-date-icon="icon-calendar" data-time-icon="icon-time" class="fa fa-calendar">b</i></span>
-			                </div>
-						</div>
-						<div class="row hor half">
-							<label>Thứ tự</label>
-							<?= $form->render("position", array("class"=>"txt_medium")) ?>
-						</div>
-					</fieldset>
-
 					<fieldset class="tab-content select_image">
 						<div class="row hor half">
 							<input type="hidden" id="select_image" name="attr_image" value="<?= isset($image_value) ? $image_value:'' ?>" />
@@ -83,7 +57,7 @@
 								<?php if(isset($list_image) && !empty($list_image)): ?>
 									<?php foreach($list_image as $key => $value): ?>
 										<div class="item">
-											<img src="<?= $value ?>" /><span ref="<?= $key ?>" onClick="delete_image(this)"></span>
+											<img src="<?= PUBLIC_URL.$value ?>" /><span ref="<?= $key ?>" onClick="delete_image(this)"></span>
 										</div>
 									<?php endforeach ?>
 								<?php endif; ?>
@@ -111,5 +85,4 @@
 			<?php endforeach ?>
 			item = sourc.length;
 		<?php endif ?>
-		var published = "<?= $form->getValue('published')!=""?$form->getValue('published'):date("Y-m-d H:i:s")?>";
 	</script>

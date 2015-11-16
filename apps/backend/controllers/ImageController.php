@@ -10,7 +10,7 @@ class ImageController extends ControllerBase{
         $this->view->breadcrumb_cat = 'Hình ảnh';
 	}
 
-    public function indexAction(){	
+    public function indexAction(){
     	
         $this->tag->setTitle("Hình ảnh");
         $this->view->name_confirm = "hình ảnh";
@@ -23,6 +23,7 @@ class ImageController extends ControllerBase{
     }
 
     public function addAction(){
+
         $this->assets->addJs('library/bootstrap/js/bootstrap-datetimepicker.min.js')
                      ->addJs('backend/js/init_tab.js')
                      ->addJs('backend/js/install_datetimepicker.js')
@@ -32,26 +33,30 @@ class ImageController extends ControllerBase{
 
         $this->tag->setTitle('Hình ảnh: Thêm mới');
         $this->view->title_action = 'Thêm mới';
+
         $this->view->form = $this->getForm();
+
         if ($this->request->isPost() == true) {
 
-            // thong tin cau hinh
-            foreach ($_POST['params'] as $key => $value) {
-                $params .= $key.'='.$value.';';
-            }
+            $code = $_POST['title'];
+            $this->plugin->create_code($code, "Image");
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
 
         	$add = array(
-                    'params'    =>  $params,
-                    'attr_image'=>  $_POST['attr_image'],
-        			'hits'		=>	'0',
-        			'created'	=>	date('Y-m-d H:i:s'),
-        			'updated'	=>	date('Y-m-d H:i:s'),
+                'code'      =>  $code,
+                'attr_image'=>  str_replace(PUBLIC_URL, '', $_POST['attr_image']),
+    			'hits'		=>	'0',
+    			'created'	=>	date('Y-m-d H:i:s'),
+    			'updated'	=>	date('Y-m-d H:i:s'),
         	);
+
             $this->save($_POST, null, $add);
         }
     }
 
     public function editAction($id){
+        
         $this->assets->addJs('library/bootstrap/js/bootstrap-datetimepicker.min.js')
                      ->addJs('backend/js/init_tab.js')
                      ->addJs('backend/js/install_datetimepicker.js')
@@ -61,8 +66,8 @@ class ImageController extends ControllerBase{
 
         $this->tag->setTitle("Hình ảnh: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
-        $model = $this->findFirstById($id);
-       
+
+        $model = $this->findFirstById($id);       
         $this->view->form = $this->getForm($model);
         
         // load ảnh attr_image
@@ -76,16 +81,20 @@ class ImageController extends ControllerBase{
             }
             $this->view->image_value = implode(",",$list_image);
             $this->view->list_image = $list_image;
-        } // End load thuộc tính sản phẩm;
+        } // End load ảnh attr_image
 
         if ($this->request->isPost() == true) {
 
-            $update = array(
-                    'attr_image'=>  $_POST['attr_image'],
-                    'updated'   =>  date('Y-m-d H:i:s'),
-            );
+            $this->plugin->create_code($_POST['code'], "Image", $id);
+
             $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
-            $this->save($_POST, $model,$update);
+
+            $update = array(
+                'attr_image'=>  str_replace(PUBLIC_URL, '', $_POST['attr_image']),
+                'updated'   =>  date('Y-m-d H:i:s'),
+            );
+
+            $this->save($_POST, $model, $update);
         }
     }
     

@@ -8,8 +8,7 @@
 			<div class="module_content">
 				<ul class="tab-row">
 					<li>Thông tin chính</li>
-					<li>Cấu hình</li>
-					<li>hình ảnh</li>
+					<li>Hình ảnh</li>
 				</ul>
 				<div class="tab-group">
 					<fieldset class="tab-content main">
@@ -28,7 +27,7 @@
 						</div>
 						<div class="row hor half">
 							<label>Nổi bật</label>
-							<?= $form->render("feature", array("class"=>"long")) ?>
+							<?= $form->render("featured", array("class"=>"long")) ?>
 						</div>
 						<div class="row hor half">
 							<label>Hình ảnh</label>
@@ -40,36 +39,6 @@
 						<div class="row hor">
 							<label>Nội dung</label>
 							<?= $form->render("content", array("class"=>"txt_long")) ?>
-						</div>
-					</fieldset>
-
-					<fieldset class="tab-content config">
-						<div class="row hor half">
-							<label>Hiển thị tiêu đề</label>
-							<?= $form->render("params[show_title]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị nội dung</label>
-							<?= $form->render("params[show_content]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị ngày đăng tải</label>
-							<?= $form->render("params[show_published]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half">
-							<label>Hiển thị lượt xem</label>
-							<?= $form->render("params[show_hits]", array("class"=>"long")) ?>
-						</div>
-						<div class="row hor half" id="datetimepicker">
-							<label class="control-label">Ngày đăng</label>
-			                <div class='input-group date input-append' id="datetimepicker">
-								<?= $form->render('published', array("class"=>"txt_medium button")) ?>
-			                    <span class="input-group-addon add-on"><i data-date-icon="icon-calendar" data-time-icon="icon-time" class="fa fa-calendar">b</i></span>
-			                </div>
-						</div>
-						<div class="row hor half">
-							<label>Thứ tự</label>
-							<?= $form->render("position", array("class"=>"txt_medium")) ?>
 						</div>
 					</fieldset>
 
@@ -96,5 +65,4 @@
 	<script type="text/javascript">
 		var sourc = new Array();
 		var item = 0;
-		var published = "<?= $form->getValue('published')!=""?$form->getValue('published'):date("Y-m-d H:i:s")?>";
 	</script>

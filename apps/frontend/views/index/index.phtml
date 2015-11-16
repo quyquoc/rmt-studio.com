@@ -1,38 +1,35 @@
 
+	<div id="home">
+		<div class="page">
 
-
-
-<div id="header1">
-	<!-- jQuery handles to place the header background images -->
-	<div id="headerimgs">
-		<div id="headerimg1" class="headerimg"></div>
-		<div id="headerimg2" class="headerimg"></div>
-	</div>
-	<!-- Top navigation on top of the images -->
-	<div id="nav-outer">
-		<div id="navigation">
-			<div id="menu">
-				<?php $this->menu->show('menu-top');?>
+			<div id="header">
+				<div class="wrapper">
+					<div class="logo">
+						<a href="<?php echo $this->url->get();?>"><img src="<?php echo PUBLIC_URL.'/frontend/images/logo_w.png';?>" /></a>
+					</div>
+					<div id="menu">
+						<div class="menu-navigation">
+							<?php $this->menu->show('menu-top');?>
+						</div>
+					</div>
+					<div class="social">
+						<div class="moduletable">
+							<div class="modulecontent">
+								<div>
+									<a class="ico_mail" onclick="javascript:window.open('mailto:rmtarch@gmail.com');">&nbsp;</a>
+									<a class="ico_be" onclick="javascript:window.open('https://www.behance.net/rMtArc','_blank');" target="_blank">&nbsp;</a>
+									<a class="ico_fb" onclick="javascript:window.open('https://www.facebook.com/rmtarc','_blank');" target="_blank">&nbsp;</a>
+								</div>
+							</div>
+						</div>
+					</div>												
+					<div class="clr"></div>
+				</div>
 			</div>
+
+			<div class="slideshow">
+				<?php $this->element->image_slick(5);?>
+			</div>
+
 		</div>
 	</div>
-	<!-- Slideshow controls -->
-	<div id="headernav-outer">
-		<div id="headernav">
-			<div id="back" class="btn"></div>
-			<div id="control" class="btn"></div>
-			<div id="next" class="btn"></div>
-		</div>
-	</div>
-	<!-- jQuery handles for the text displayed on top of the images -->
-	<div id="headertxt">
-		<p class="caption">
-			<span id="firstline"></span>
-			<a href="#" id="secondline"></a>
-		</p>
-		<p class="pictured">
-			Pictured:
-			<a href="#" id="pictureduri"></a>
-		</p>
-	</div>
-</div>

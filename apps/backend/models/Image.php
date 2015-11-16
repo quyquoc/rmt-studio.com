@@ -61,12 +61,6 @@ class Image extends Model {
 
     /**
      *
-     * @var text
-     */
-    public $params;
-
-    /**
-     *
      * @var integer
      */
     public $hits;
@@ -112,7 +106,6 @@ class Image extends Model {
             'album_id'      =>  'album_id',
             'featured'      =>  'featured',
             'status'        =>  'status',
-            'params'        =>  'params',
             'hits'          =>  'hits',
             'created'       =>  'created',
             'updated'       =>  'updated',

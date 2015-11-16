@@ -40,14 +40,11 @@ class Module
 		/**
 		* Register a component
 		*/
-		$di->set('init', function(){
-			return new \Modules\Frontend\Elements\Init();
-		});
 		$di->set('menu', function(){
 			return new \Modules\Frontend\Elements\Menu();
 		});
-		$di->set('plugin', function(){
-			return new \Modules\Library\Plugin();
+		$di->set('element', function(){
+			return new \Modules\Frontend\Elements\Element();
 		});
 	}
 

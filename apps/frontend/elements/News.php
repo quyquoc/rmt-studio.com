@@ -42,7 +42,7 @@ class News extends Component{
 			$articles = $articles::find($query);
 		}
 		
-		require (ELEMENT_PATH.'news/show.php');
+		require (ELEMENTS_PATH.'news/show.php');
 	}
 
 	public function Search($id = 0){
@@ -52,7 +52,7 @@ class News extends Component{
 
 		# code here...
 		
-		require (ELEMENT_PATH.'news/search.php');
+		require (ELEMENTS_PATH.'news/search.php');
 	}
 }	
 

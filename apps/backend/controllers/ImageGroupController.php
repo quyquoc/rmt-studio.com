@@ -23,17 +23,20 @@ class ImageGroupController extends ControllerBase{
     }
 
     public function addAction(){
+
         $this->tag->setTitle('Chủ đề ảnh: Thêm mới');
         $this->view->title_action = 'Thêm mới';
         $this->view->form = $this->getForm();
+
         if ($this->request->isPost() == true) {
 
-            $system = new \Modules\Library\System();
-
             $code = $_POST['title'];
-            $system->getCode($code, "Image_group");
+            $this->plugin->create_code($code, "Image_group");
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
             $add = array(
-                'code'=>$code
+                'code'  => $code
             );
 
             $this->save($_POST, null, $add);
@@ -41,17 +44,24 @@ class ImageGroupController extends ControllerBase{
     }
 
     public function editAction($id){
+
         $this->tag->setTitle("Chủ đề ảnh: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
+
         $model = $this->findFirstById($id);
-        
         $this->view->form = $this->getForm($model);
+        
         if ($this->request->isPost() == true) {
+
+            $this->plugin->create_code($_POST['code'], "Image_group", $id);
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
             $update = array(
-                    'updated'   =>  date('Y-m-d H:i:s'),
+                'updated'   => date('Y-m-d H:i:s'),
             );
 
-            $this->save($_POST, $model,$update);
+            $this->save($_POST, $model, $update);
         }
     }
     

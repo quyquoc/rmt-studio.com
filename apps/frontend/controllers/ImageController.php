@@ -16,7 +16,8 @@ class ImageController extends ControllerBase{
 		$conditions = "group_id = :group_id: AND status = 1";
 		$list_item	= $this->find(array(
 				"conditions" 	=> $conditions, 
-				"bind" 			=> array("group_id" => '2')
+				"bind" 			=> array("group_id" => '2'),
+				"order"			=> "featured, position ASC",
 		));		
 		$this->view->list_item = $list_item;
 
