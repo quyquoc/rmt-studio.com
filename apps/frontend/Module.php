@@ -43,6 +43,9 @@ class Module
 		$di->set('menu', function(){
 			return new \Modules\Frontend\Elements\Menu();
 		});
+		$di->set('element', function(){
+			return new \Modules\Frontend\Elements\Element();
+		});
 	}
 
 }

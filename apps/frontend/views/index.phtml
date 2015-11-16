@@ -5,7 +5,7 @@
 	<meta property="og:url" content="http://rmt-studio.com" />
 	<meta property="og:site_name" content="Rmt Studio | rmt-studio.com" />
 	<meta property="og:image" content="http://rmt-studio.com/public/templates/public/light/images/img_fb.jpg" />
-	<meta name="keywords" content="rmtstudio, rmt-studio, rmt studio, rmt, studio, architect, architecture, 3d, interior, visualization, kien truc, nghe thuat, ve 3d"></meta>
+	<meta name="keywords" content="rmtstudio, rmt-studio, rmt studio, rmt, studio, architect, architecture, 3d, interior, visualization, kien truc, kiến trúc, nghe thuat, nghệ thuật, ve 3d, vẽ 3d, nội cảnh, noi canh, ngoại cảnh, ngoai canh, không gian, khong gian, kien truc su, kiến trúc sư"></meta>
 	<meta name="robots" content="index,follow" />
 	<meta name="description" content="RMT Studio, We are the professional team with talented Architects and 3D Artists. We have had depth-experiences in Architecture Design and 3D Visualization. Professional style and passionate in works are what we have. We have done many projects in various scales in the world. Bring the satisfaction for customer is our happy. In The RMT Studio, we are always strictly in works and assessment of the quality of each product in any project. If you have any project need to help, bring it to us. Because RMT Studio is the best choice."></meta>
 	<meta name="alexa" content="100">
@@ -20,7 +20,7 @@
 	<?= $this->tag->stylesheetLink(array('frontend/favicon.ico','rel'=>'shortcut icon')); ?>
 	<?= $this->tag->getTitle(); ?>
 	<?= $this->tag->stylesheetLink("frontend/css/style.css"); ?>
-	<?= $this->tag->stylesheetLink("frontend/css/default.css"); ?>
+	<?php //echo $this->tag->stylesheetLink("frontend/css/default.css"); ?>
 	<?= $this->tag->stylesheetLink("frontend/css/component.css"); ?>
 	<?= $this->tag->stylesheetLink("library/fancybox/jquery.fancybox.css"); ?>
 	<?= $this->tag->stylesheetLink("library/fancybox/helpers/jquery.fancybox-thumbs.css"); ?>
@@ -36,10 +36,21 @@
 <body>
 	<?= $this->getContent(); ?>
 
+	<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-61934064-1', 'auto');
+		  ga('send', 'pageview');
+	</script>
+
 	<?= $this->tag->javascriptInclude("frontend/js/masonry.pkgd.min.js"); ?>
 	<?= $this->tag->javascriptInclude("frontend/js/imagesloaded.js"); ?>
 	<?= $this->tag->javascriptInclude("frontend/js/classie.js"); ?>
 	<?= $this->tag->javascriptInclude("frontend/js/AnimOnScroll.js"); ?>
+
 	<script>
 		new AnimOnScroll( document.getElementById( 'grid' ), {
 			minDuration : 0.4,
