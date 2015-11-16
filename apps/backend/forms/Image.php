@@ -29,7 +29,7 @@ class Image extends Form {
 		$this->add(new Text("image"));
 		$this->add(new TextArea("content"));
 
-		$album_id = new Select('album_id', \Modules\Backend\Models\Image_album::find(), array('using' => array('id', 'title'), 'size'=>5));
+		$album_id = new Select('album_id', \Modules\Backend\Models\Image_album::find(array("order"=>"title")), array('using' => array('id', 'title'), 'size'=>5));
 
 		$this->add(new Text("position"));
 		
