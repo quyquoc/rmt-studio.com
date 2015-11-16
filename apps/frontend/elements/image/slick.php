@@ -11,7 +11,7 @@
 						dots: false,
 						infinite: true,
 						autoplay: true,
-						speed: 1000,
+						speed: 1500,
 						fade: true,
 						cssEase: 'linear'
 					});
