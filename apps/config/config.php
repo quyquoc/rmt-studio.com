@@ -7,6 +7,8 @@ return new \Phalcon\Config(array(
 		'host'		=> '103.7.40.122',
 		'username'	=> 'admin_root',
 		'password'	=> 'c0nand0yle',
+		// 'username'	=> 'root',
+		// 'password'	=> 'root',
 		'name'		=> 'admin_rmtstudio',
 		'charset'	=> 'utf8'
 	),
@@ -22,4 +24,5 @@ return new \Phalcon\Config(array(
 		),
 		'to_email'	=> 'rmtarch@gmail.com'
 	),
+	'website' => 'http://rmt-studio.com'
 ));

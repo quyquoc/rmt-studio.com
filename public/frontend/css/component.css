@@ -8,8 +8,8 @@
 .grid li {
 	display: block;
 	float: left;
-	padding: 7px;
-	width: 33%;
+	padding: 0;
+	width: 33.33%;
 	opacity: 0;
 }
 
@@ -32,6 +32,10 @@
 	position: relative;
 }
 
+.grid li a{
+	overflow: hidden;
+	position: relative;
+}
 .grid li img:hover{
 	transform: scale(1.1);
 }

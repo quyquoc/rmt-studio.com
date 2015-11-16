@@ -34,11 +34,13 @@ class ImageAlbumController extends ControllerBase{
 
             $system = new \Modules\Library\System();
 
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
             $code = $_POST['title'];
             $system->getCode($code, "Image_album");
             $add = array(
-                    'code'      =>  $code,
-                    'attr_image'=>  $_POST['attr_image'],
+                'code'      =>  $code,
+                'attr_image'=>  str_replace(PUBLIC_URL, '', $_POST['attr_image']),
             );
 
             $this->save($_POST, null, $add);
@@ -70,9 +72,12 @@ class ImageAlbumController extends ControllerBase{
         } // End load thuộc tính sản phẩm;
 
         if ($this->request->isPost() == true) {
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+            
             $update = array(
-                    'attr_image'=>  $_POST['attr_image'],
-                    'updated'   =>  date('Y-m-d H:i:s'),
+                'attr_image'=>  str_replace(PUBLIC_URL, '', $_POST['attr_image']),
+                'updated'   =>  date('Y-m-d H:i:s'),
             );
 
             $this->save($_POST, $model,$update);

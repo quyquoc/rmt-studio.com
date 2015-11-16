@@ -23,22 +23,41 @@ class MenuController extends ControllerBase {
     }
 
     public function addAction(){
+
     	$this->tag->setTitle('Quản lý menu: Thêm mới');
         $this->view->title_action = 'Thêm mới';
         
     	$this->view->form = $this->getForm();
+
     	if ($this->request->isPost() == true) {
-            $_POST['code'] = $this->plugin->alias_name($_POST['name']);
-            $this->save($_POST);
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
+            $code = $_POST['title'];
+            $this->plugin->create_code($code, "Menu");
+
+            $add = array(
+                'code'  =>  $code,
+            );
+
+            $this->save($_POST, null, $add);
     	}
     }
 
     public function editAction($id){
+
     	$this->tag->setTitle("Quản lý menu: Chỉnh sửa");
         $this->view->title_action = 'Chỉnh sửa';
+
     	$model = $this->findFirstById($id);
     	$this->view->form = $this->getForm($model);
+
     	if ($this->request->isPost() == true) {
+
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
+
+            $this->plugin->create_code($_POST['code'], "Menu", $id);
+
     		$this->save($_POST,$model);
     	}
     }

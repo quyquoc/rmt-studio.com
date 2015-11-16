@@ -65,7 +65,7 @@ class ImageController extends ControllerBase{
        
         $this->view->form = $this->getForm($model);
         
-        // load ảnh attr_image của sản phẩm
+        // load ảnh attr_image
         $arr_image =  explode(",", $model->attr_image);
         if(!empty($arr_image)){
             $list_image = array();
@@ -80,16 +80,11 @@ class ImageController extends ControllerBase{
 
         if ($this->request->isPost() == true) {
 
-            // thong tin cau hinh
-            foreach ($_POST['params'] as $key => $value) {
-                $params .= $key.'='.$value.';';
-            }
             $update = array(
-                    'params'    =>  $params,
                     'attr_image'=>  $_POST['attr_image'],
                     'updated'   =>  date('Y-m-d H:i:s'),
             );
-
+            $_POST['image'] = str_replace(PUBLIC_URL, '', $_POST['image']);
             $this->save($_POST, $model,$update);
         }
     }
