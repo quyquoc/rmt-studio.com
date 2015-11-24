@@ -137,6 +137,20 @@ img {
           right: 0; }
           #home .page .slideshow .fade .slick-next:before {
             content: ''; }
+    #home .page .slogan {
+      color: white;
+      position: absolute;
+      top: 50%;
+      text-align: center;
+      width: 100%;
+      font-size: 20pt;
+      font-weight: bold;
+      font-size: 25pt;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      line-height: 1.2;
+      font-family: 'Arial'; }
 
 /*------------------------------------------------
 ** HEADER
