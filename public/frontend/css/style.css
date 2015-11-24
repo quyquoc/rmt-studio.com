@@ -144,13 +144,11 @@ img {
       text-align: center;
       width: 100%;
       font-size: 20pt;
-      font-weight: bold;
-      font-size: 25pt;
+      font-size: 35pt;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      line-height: 1.2;
-      font-family: 'Arial'; }
+      line-height: 1.2; }
 
 /*------------------------------------------------
 ** HEADER
