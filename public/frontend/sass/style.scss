@@ -117,7 +117,7 @@ img{
 		width: 100%;
 		height: 100%;
 		#header{
-			background: rgba(0, 0, 0, 0.1);
+			background: rgba(0, 0, 0, 0.5);
 		}
 		.slideshow{
 			position: absolute;
@@ -169,7 +169,7 @@ img{
 	left: 0;
 	z-index: 999;	
 	width: 100%;
-	height: 120px;
+	height: 80px;
     &.transparent{
 		position: fixed;
 		top: 0;
@@ -211,12 +211,12 @@ img{
 		float: left;
 		height: 50px;
 		width: 50%;
-		margin: 40px 0 0 0;
+		margin: 10px 0 0 0;
 	}
 	.social{
 		position: absolute;
 		right: 1%;
-		top: 62px;
+		top: 43px;
 		.ico_fb{
 			float: right;
 			display: block;
